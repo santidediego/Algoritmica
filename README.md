@@ -1,2 +1,2 @@
-# Arquitectura_de_computadores
-Repositorio para las prácticas de AC
+# Algorítmica
+Repositorio para las prácticas de la asignatura de algorítmica
