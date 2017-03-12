@@ -97,10 +97,13 @@ int main()
     {
       T[i] = random();
     };
-
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
   burbuja(T, n);
-
+  tdespues=clock();
   delete [] T;
+  cout << (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 
   return 0;
 };

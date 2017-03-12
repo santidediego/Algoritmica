@@ -1,0 +1,14 @@
+#!/bin/csh -vx
+echo "" >> salida_burbuja.dat
+@ i = 1000
+while ( $i < 100000 )
+./burbuja $i >> salida_burbuja.dat
+@ i += 1000
+end
+#Ahora insercion
+echo "" >> salida_insercion.dat
+@ i = 1000
+while ( $i < 100000 )
+./insercion $i >> salida_insercion.dat
+@ i += 1000
+end
