@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
     cout<<"Error"<<endl;
     return 0;
   }
-  int n=(int)argv[1];
+  int n=atoi(argv[1]);
 
   int * T = new int[n];
   assert(T);
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
   burbuja(T, n);
   tdespues=clock();
   delete [] T;
-  cout << (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
+  cout<<n<<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 
   return 0;
 };

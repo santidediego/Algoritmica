@@ -87,8 +87,7 @@ int main(int argc, char* argv[])
     cout<<"Error"<<endl;
     return 0;
   }
-  int n=(int)argv[1];
-
+  int n=atoi(argv[1]);
   int * T = new int[n];
   assert(T);
 
@@ -98,10 +97,12 @@ int main(int argc, char* argv[])
     {
       T[i] = random();
     };
-
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
   insercion(T, n);
-
+  tdespues=clock();
   delete [] T;
-
+  cout <<n<<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
   return 0;
 };
