@@ -82,11 +82,13 @@ static void burbuja_lims(int T[], int inicial, int final)
 
 
 
-int main()
+int main(int argc, char* argv[])
 {
-  int n;
-  cout << "Introduce n�mero de elementos del vector: ";
-  cin >> n;
+  if (argc!=2) {
+    cout<<"Error"<<endl;
+    return 0;
+  }
+  int n=(int)argv[1];
 
   int * T = new int[n];
   assert(T);
