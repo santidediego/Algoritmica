@@ -91,11 +91,13 @@ static void reajustar(int T[], int num_elem, int k)
 }
   
       
-int main()
+int main(int argc, char* argv[])
 {
-  int n;
-  cout << "Introduce número de elementos del vector: ";
-  cin >> n;
+   if (argc!=2) {
+    cout<<"Error"<<endl;
+    return 0;
+  }
+  int n=atoi(argv[1]);
 
   int * T = new int[n];
   assert(T);
@@ -107,14 +109,13 @@ int main()
       T[i] = random();
     };
 
-  // escribe_vector(T, n);
-
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
   heapsort(T, n);
-
-  // escribe_vector(T, n);
-
-
+  tdespues=clock();
   delete [] T;
+  cout<<n<<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 
   return 0;
 };

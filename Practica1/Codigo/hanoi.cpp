@@ -6,6 +6,9 @@
 #include <iostream>
 using namespace std;
 #include <ctime>
+#include <cstdlib>
+#include <climits>
+#include <cassert>
 
 
 /**
@@ -32,22 +35,26 @@ void hanoi (int M, int i, int j)
   if (M > 0)
     {
       hanoi(M-1, i, 6-i-j);
-      cout << i << " -> " << j << endl;
+      //cout << i << " -> " << j << endl;
       hanoi (M-1, 6-i-j, j);
   }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+   if (argc!=2) {
+    cout<<"Error"<<endl;
+    return 0;
+  }
+  int n=atoi(argv[1]);
 
-  int M;
-  do
-    {
-      cout << "Número de discos: ";
-      cin >> M;
-    } while (M <= 0);
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
+  hanoi(n, 1, 2);
+  tdespues=clock();
 
-  hanoi(M, 1, 2);
+  cout<<n<<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 
   return 0;
-}
+};
