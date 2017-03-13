@@ -1,13 +1,13 @@
 #!/bin/csh
 
-@ inicio = 100
-@ fin = 2600
-@ incremento = 100
+@ inicio = 7500000
+@ fin = 10000000
+@ incremento = 100000
 
 @ i = $inicio
-echo > salida_floyd.dat
+echo > salida_heapsort.dat
 while($i <= $fin)
 echo Ejecución tam = $i
-echo `./floyd $i` >> salida_floyd.dat
+echo `./heapsort $i` >> salida_heapsort.dat
 @ i += $incremento
 end
