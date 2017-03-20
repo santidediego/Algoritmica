@@ -1,7 +1,7 @@
 
 
 *******************************************************************************
-Sun Mar 19 21:45:51 2017
+Mon Mar 20 17:37:44 2017
 
 
 FIT:    data read from 'salidaquicksort.dat'
@@ -15,35 +15,32 @@ fitted parameters initialized with current variable values
 
 
  Iteration 0
- WSSR        : 6.50041e-09       delta(WSSR)/WSSR   : 0
+ WSSR        : 5.32626e+11       delta(WSSR)/WSSR   : 0
  delta(WSSR) : 0                 limit for stopping : 1e-05
- lambda	  : 340326
+ lambda	  : 103210
 
 initial set of free parameter values
 
-a0              = 1.64686e-10
-a1              = 0.373644
-a2              = 3.78796e-08
+a0              = 1
+a1              = 1
 
-After 1 iterations the fit converged.
-final sum of squares of residuals : 6.50041e-09
-rel. change during last iteration : -1.78151e-15
+After 9 iterations the fit converged.
+final sum of squares of residuals : 7.24248e-09
+rel. change during last iteration : -1.09982e-08
 
-degrees of freedom    (FIT_NDF)                        : 22
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.71893e-05
-variance of residuals (reduced chisquare) = WSSR/ndf   : 2.95473e-10
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.77452e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.1489e-10
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
 
-a0              = 1.64686e-10      +/- 2.423e-09    (1472%)
-a1              = 0.373644         +/- 1.198        (320.5%)
-a2              = 3.78796e-08      +/- 1.89e-08     (49.9%)
+a0              = 4.40174e-09      +/- 4.753e-11    (1.08%)
+a1              = 1.98678e-05      +/- 6.938e-06    (34.92%)
 
 
 correlation matrix of the fit parameters:
 
-               a0     a1     a2     
+               a0     a1     
 a0              1.000 
-a1             -1.000  1.000 
-a2             -0.996  0.994  1.000 
+a1             -0.859  1.000 
