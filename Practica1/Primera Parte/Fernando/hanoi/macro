@@ -1,0 +1,7 @@
+#!/bin/csh -vx
+echo "" >> hanoi.dat
+@ i = 1
+while ( $i <= 25 )
+./hanoi $i >> hanoi.dat
+@ i += 1
+end

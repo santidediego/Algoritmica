@@ -1,0 +1,46 @@
+
+
+*******************************************************************************
+Mon Mar 20 17:37:44 2017
+
+
+FIT:    data read from 'salidaquicksort.dat'
+        format = z
+        #datapoints = 25
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 5.32626e+11       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 103210
+
+initial set of free parameter values
+
+a0              = 1
+a1              = 1
+
+After 9 iterations the fit converged.
+final sum of squares of residuals : 7.24248e-09
+rel. change during last iteration : -1.09982e-08
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.77452e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.1489e-10
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a0              = 4.40174e-09      +/- 4.753e-11    (1.08%)
+a1              = 1.98678e-05      +/- 6.938e-06    (34.92%)
+
+
+correlation matrix of the fit parameters:
+
+               a0     a1     
+a0              1.000 
+a1             -0.859  1.000 
