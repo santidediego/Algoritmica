@@ -1,7 +1,0 @@
-#!/bin/csh -vx
-echo "" >> seleccion.dat
-@ i = 4000
-while ( $i <= 100000 )
-./seleccion $i >> seleccion.dat
-@ i += 4000
-end

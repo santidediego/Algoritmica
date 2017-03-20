@@ -1,7 +1,0 @@
-#!/bin/csh -vx
-echo "" >> floyd.dat
-@ i = 40
-while ( $i <= 1000 )
-./floyd $i >> floyd.dat
-@ i += 40
-end

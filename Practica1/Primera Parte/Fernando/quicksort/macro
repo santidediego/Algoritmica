@@ -1,7 +1,0 @@
-#!/bin/csh -vx
-echo "" >> quicksort.dat
-@ i = 4000
-while ( $i <= 100000 )
-./quicksort $i >> quicksort.dat
-@ i += 4000
-end
