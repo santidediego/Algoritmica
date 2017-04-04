@@ -24,95 +24,133 @@
 \titlepage
 \end{frame}
 
-<<<<<<< HEAD
 \begin{frame}{Introducción}
-=======
-
-\begin{frame}{Introducción}
-Hemos diseñado un algoritmo basado en "divide y vencerás" el cual tiene como objetivo encontrar el valor máximo de una serie unimodal. 
-
-\vspace{5mm} %5mm vertical space
-
-El orden de eficiencia de este algoritmo es O(log(n)) y lo hemos comparado con el algoritmo trivial para este problema que es de orden O(n).
-\end{frame}
-\begin{frame}
-Veremos unas tablas en las que se muestran el tiempo de ejecución para distinto número de elementos en los vectores, todo ello complementado con una gráfica.
-
-\vspace{5mm} %5mm vertical space
-
-Además hemos ajustado estos datos a la función obtenida por la eficiencia teórica por el ajuste de mínimos cuadrados.
-\end{frame}
-
-\begin{frame}{Código Divide y Vencerás}
-El algoritmo consiste en tomar el elemento que se encuentra en mitad del vector y comprobar si es un máximo viendo si es mayor que el elemento de la izquierda y menor que el de la derecha. 
-
-\vspace{2mm} %5mm vertical space
-
-\begin{itemize}
-\item Si es así se ha terminado el algoritmo pues ya hemos encontrado el máximo. 
-\item Si no es así vemos si el elemento esta en la zona creciente o decreciente del vector.
-	\begin{itemize}
-	\item En el caso de que este en la zona creciente el máximo se situara en la mitad de la derecha del vector.
-	\item Si se encuentra en la decreciente en la mitad izquierda.
-	\end{itemize}
-\end{itemize}
-Se vuelve a aplicar el algoritmo sobre la mitad del vector donde se encuentre el máximo y se repite el proceso hasta que se encuentre el máximo.
-\end{frame}
-
-\begin{frame}
-Como en cada iteración lo que se hace es dividir el vector por la mitad y buscar el máximo en una mitad el número máximo de iteraciones hasta encontrar el máximo es de $log(n)$, siendo $n$ el tamaño del vector. 
->>>>>>> fba0d09916e2abc0a82b54ebc9bca4a7e97ce5bc
-
-\vspace{5mm} %5mm vertical space
-
-Como todo las comprobaciones realizadas en cada iteración son $o(1)$ el algoritmo es $o(log(n))$.
-\end{frame}
-
-\begin{frame}
-
-\begin{figure}[H] 
-\centering
-\includegraphics[angle=0,scale=0.35]{img/1.png} 
-\label{etiqueta} 
-\end{figure}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]{Código Divide y Vencerás}
+	\lstset{language=C++, breaklines=true, backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\footnotesize}
+	\begin{lstlisting}
+	
+	\end{lstlisting}
+\end{frame}
 
-\begin{figure}[H] 
-\centering
-\includegraphics[angle=0,scale=0.35]{img/2.png} 
-\label{etiqueta} 
-\end{figure}
+\begin{frame}[fragile]{Código secuencial}
+	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal DyV}, basicstyle=\tiny}
+	\begin{lstlisting}
+int unimodal(vector<int> v)
+{
+	bool fin=false;
+	int maximo=v.size()-1;
+	int indice=maximo/2;
+	int minimo;
+ 
+	while(!fin)
+	{
+        if(v.at(indice-1)<v.at(indice))
+           if(v.at(indice+1)<v.at(indice))
+			    fin=true;
+		   else
+		   {
+				minimo=indice;
+				indice=indice+((maximo-indice)/2);
+			}
+		else
+		{
+			maximo=indice;
+			indice=minimo+((indice-minimo)/2);
+		}
+	}
+	return indice;
+}
+	\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+	\lstset{language=C++, breaklines=true, extendedchars=true, caption={Función main DyV},backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\tiny}
+	\begin{lstlisting}
+int main(int argc, char* argv[])
+{
+	vector<int> array;
+  	int valor = -1;
+	double suma=0;
+
+	int v_size = atoi(argv[1]);
+	array.resize(v_size);
+
+	for(int i=0; i<100; ++i)
+	{
+		int p = 1 + rand() % (v_size-2);
+  		array.at(p) = v_size-1;
+  		for (int i=0; i<p; i++)
+  			array.at(i)=i;
+  		for (int i=p+1; i<v_size; i++)
+  			array.at(i)=v_size-1-i+p;
+
+		clock_t tantes;
+		clock_t tdespues;
+		tantes=clock();
+		valor = unimodal(array);
+		tdespues=clock();
+		suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
+	}
+  	cout << v_size <<" "<< suma/100 << endl;
+}
+	\end{lstlisting}
 
 \end{frame}
 
-\begin{frame}{Código secuencial}
-En este caso lo único que se hace es recorrer el vector hasta ver que empieza a ser decreciente.
+\begin{frame}[fragile]{Código secuencial}
+	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal Secuencial}, basicstyle=\footnotesize}
+	\begin{lstlisting}
+int unimodal_secuencial(vector<int> v)
+{
+	bool fin=false;
+  	int indice=1;
 
-\vspace{5mm} %5mm vertical space
+  	while(!fin)
+  	{
+     	if(v.at(indice+1)<v.at(indice))
+      		fin=true;
+     	else
+      		indice++;
+  	}
 
-En el peor caso puede empezar a ser decreciente en el penúltimo elemento por lo que habría que recorrer todo el vector, de manera que la eficiencia de este algoritmo es O(n).
+  	return indice;
+}
+	\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+	\lstset{language=C++, breaklines=true, extendedchars=true, caption={Función main Secuencial},backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\tiny}
+	\begin{lstlisting}
+int main(int argc, char* argv[])
+{
+	vector<int> array;
+  	int valor = -1;
+	double suma=0;
 
-\begin{figure}[H] 
-\centering
-\includegraphics[angle=0,scale=0.35]{img/3.png} 
-\label{etiqueta} 
-\end{figure}
+  	int v_size = atoi(argv[1]);
+  	array.resize(v_size);
 
-\end{frame}
+	for(int i=0; i<100; ++i)
+	{
+		int p = 1 + rand() % (v_size-2);
+  		array.at(p) = v_size-1;
+  		for (int i=0; i<p; i++)
+  			array.at(i)=i;
+  		for (int i=p+1; i<v_size; i++)
+  			array.at(i)=v_size-1-i+p;
 
-\begin{frame}
-
-\begin{figure}[H] 
-\centering
-\includegraphics[angle=0,scale=0.35]{img/4.png} 
-\label{etiqueta} 
-\end{figure}
+  		clock_t tantes;
+  		clock_t tdespues;
+  		tantes=clock();
+  		valor = unimodal_secuencial(array);
+  		tdespues=clock();
+		suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
+	}
+  	cout << v_size <<" "<< suma/100 << endl;
+}
+	\end{lstlisting}
 
 \end{frame}
 
