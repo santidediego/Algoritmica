@@ -1,0 +1,35 @@
+Sec
+
+degrees of freedom    (FIT_NDF)                        : 24
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00109974
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.20944e-06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a0              = 1.69539e-09      +/- 2.876e-11    (1.696%)
+a1              = -0.00183396      +/- 0.0004441    (24.22%)
+
+correlation matrix of the fit parameters:
+                a0     a1     
+a0              1.000 
+a1             -0.874  1.000 
+
+
+DyV
+
+degrees of freedom    (FIT_NDF)                        : 23
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00112189
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.25865e-06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a0              = 1.69539e-09      +/- 0.0007016    (4.138e+07%)
+a1              = 1.25523e-09      +/- 7.686e-11    (6.123%)
+a2              = -0.00189877      +/- 0.0104       (547.6%)
+
+correlation matrix of the fit parameters:
+                a0     a1     a2     
+a0              1.000 
+a1             -0.924  1.000 
+a2             -0.999  0.909  1.000 
+

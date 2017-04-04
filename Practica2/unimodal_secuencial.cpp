@@ -45,5 +45,5 @@ for(int i=0; i<100; ++i){
   tdespues=clock();
 	suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
 }
-  cout << v_size <<" "<< suma/1000 << endl;
+  cout << v_size <<" "<< suma/100 << endl;
 }
