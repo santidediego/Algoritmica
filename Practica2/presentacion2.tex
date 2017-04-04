@@ -40,23 +40,27 @@
 \end{frame}
 
 \begin{frame}[fragile]{Código secuencial}
-	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal DyV}, basicstyle=\footnotesize}
+	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal DyV}, basicstyle=\tiny}
 	\begin{lstlisting}
-int unimodal(vector<int> v){
+int unimodal(vector<int> v)
+{
 	bool fin=false;
 	int maximo=v.size()-1;
 	int indice=maximo/2;
 	int minimo;
  
-	while(!fin){
-		if(v.at(indice-1)<v.at(indice))
-			if(v.at(indice+1)<v.at(indice))
-				fin=true;
-			else{
+	while(!fin)
+	{
+        if(v.at(indice-1)<v.at(indice))
+           if(v.at(indice+1)<v.at(indice))
+			    fin=true;
+		   else
+		   {
 				minimo=indice;
 				indice=indice+((maximo-indice)/2);
 			}
-		else{
+		else
+		{
 			maximo=indice;
 			indice=minimo+((indice-minimo)/2);
 		}
@@ -68,15 +72,17 @@ int unimodal(vector<int> v){
 \begin{frame}[fragile]
 	\lstset{language=C++, breaklines=true, extendedchars=true, caption={Función main DyV},backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\tiny}
 	\begin{lstlisting}
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	vector<int> array;
   	int valor = -1;
 	double suma=0;
 
-  	int v_size = atoi(argv[1]);
-  	array.resize(v_size);
+	int v_size = atoi(argv[1]);
+	array.resize(v_size);
 
-	for(int i=0; i<100; ++i){
+	for(int i=0; i<100; ++i)
+	{
 		int p = 1 + rand() % (v_size-2);
   		array.at(p) = v_size-1;
   		for (int i=0; i<p; i++)
@@ -84,13 +90,13 @@ int main(int argc, char* argv[]){
   		for (int i=p+1; i<v_size; i++)
   			array.at(i)=v_size-1-i+p;
 
-  	clock_t tantes;
-  	clock_t tdespues;
-  	tantes=clock();
-  	valor = unimodal(array);
-  	tdespues=clock();
-	suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
-}
+		clock_t tantes;
+		clock_t tdespues;
+		tantes=clock();
+		valor = unimodal(array);
+		tdespues=clock();
+		suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
+	}
   	cout << v_size <<" "<< suma/100 << endl;
 }
 	\end{lstlisting}
@@ -100,16 +106,18 @@ int main(int argc, char* argv[]){
 \begin{frame}[fragile]{Código secuencial}
 	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal Secuencial}, basicstyle=\footnotesize}
 	\begin{lstlisting}
-	int unimodal_secuencial(vector<int> v){
-		bool fin=false;
-  		int indice=1;
+int unimodal_secuencial(vector<int> v)
+{
+	bool fin=false;
+  	int indice=1;
 
-  		while(!fin){
-     		if(v.at(indice+1)<v.at(indice))
-      		  fin=true;
-     		else
-      		  indice++;
-  		}
+  	while(!fin)
+  	{
+     	if(v.at(indice+1)<v.at(indice))
+      		fin=true;
+     	else
+      		indice++;
+  	}
 
   	return indice;
 }
@@ -119,7 +127,8 @@ int main(int argc, char* argv[]){
 \begin{frame}[fragile]
 	\lstset{language=C++, breaklines=true, extendedchars=true, caption={Función main Secuencial},backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\tiny}
 	\begin{lstlisting}
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	vector<int> array;
   	int valor = -1;
 	double suma=0;
@@ -127,7 +136,8 @@ int main(int argc, char* argv[]){
   	int v_size = atoi(argv[1]);
   	array.resize(v_size);
 
-	for(int i=0; i<100; ++i){
+	for(int i=0; i<100; ++i)
+	{
 		int p = 1 + rand() % (v_size-2);
   		array.at(p) = v_size-1;
   		for (int i=0; i<p; i++)
@@ -135,37 +145,67 @@ int main(int argc, char* argv[]){
   		for (int i=p+1; i<v_size; i++)
   			array.at(i)=v_size-1-i+p;
 
-  	clock_t tantes;
-  	clock_t tdespues;
-  	tantes=clock();
-  	valor = unimodal_secuencial(array);
-  	tdespues=clock();
-	suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
-}
+  		clock_t tantes;
+  		clock_t tdespues;
+  		tantes=clock();
+  		valor = unimodal_secuencial(array);
+  		tdespues=clock();
+		suma += (double)(tdespues - tantes) / CLOCKS_PER_SEC;
+	}
   	cout << v_size <<" "<< suma/100 << endl;
 }
 	\end{lstlisting}
 
 \end{frame}
 
-\begin{frame}{Comparación de la eficiencia}
+\begin{frame}{Eficiencia en el caso secuencial}
 
-\begin{block}{Eficiencia teórica}
 \begin{figure}[H] 
 \centering
-%\includegraphics[angle=90,scale=0.4]{img/nombre.jpg} 
+\includegraphics[angle=0,scale=0.4]{img/Eficiencia_sec.png} 
 \caption{Pie de imagen} 
 \label{etiqueta} 
 \end{figure}
-\end{block}
 
-\begin{block}{Eficiencia empírica}
+\end{frame}
 
-\end{block}
+\begin{frame}{Eficiencia en el caso Divide y Vencerás}
 
-\begin{block}{Eficiencia híbrida}
+\begin{figure}[H] 
+\centering
+\includegraphics[angle=0,scale=0.5]{img/Eficiencia_dyv.png} 
+\label{etiqueta} 
+\end{figure}
 
-\end{block}
+\end{frame}
+
+\begin{frame}{Eficiencia en el caso Divide y Vencerás}
+
+\begin{figure}[H] 
+\centering
+\includegraphics[angle=0,scale=0.5]{img/Eficiencia_dyv.png} 
+\label{etiqueta} 
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Ajuste híbrido en el caso secuencial}
+
+\begin{figure}[H] 
+\centering
+\includegraphics[angle=0,scale=0.5]{img/AjusteHibridoSec.png} 
+\caption{Pie de imagen} 
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Ajuste híbrido en el caso Divide y Vencerás}
+
+\begin{figure}[H] 
+\centering
+\includegraphics[angle=0,scale=0.5]{img/AjusteHibridoDyV.png} 
+\label{etiqueta} 
+\end{figure}
 
 \end{frame}
 
