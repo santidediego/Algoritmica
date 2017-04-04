@@ -31,15 +31,16 @@ int unimodal(vector<int> v){
 int main(int argc, char *argv[]){
   vector<int> array;
   int valor = -1;
- 
+	double suma=0;
+
   int v_size = atoi(argv[1]);
   array.resize(v_size);
-
+for(int i=0; i<100; ++i){
      int p = 1 + rand() % (v_size-2);
      array.at(p) = v_size-1;
-     for (int i=0; i<p; i++) 
+     for (int i=0; i<p; i++)
         array.at(i)=i;
-     for (int i=p+1; i<v_size; i++) 
+     for (int i=p+1; i<v_size; i++)
         array.at(i)=v_size-1-i+p;
 
 
@@ -48,6 +49,7 @@ int main(int argc, char *argv[]){
   tantes=clock();
   valor = unimodal(array);
   tdespues=clock();
-
-  cout << v_size <<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
+	suma+=(double)(tdespues - tantes) / CLOCKS_PER_SEC;
+}
+  cout << v_size <<" "<< suma/100 << endl;
 }
