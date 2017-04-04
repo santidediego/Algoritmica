@@ -5,20 +5,21 @@ using namespace std;
 
 int unimodal(vector<int> v){
   bool fin=false;
-  int tamanio=v.size()-1;
-  int indice=tamanio/2;
-	int aux;
+  int maximo=v.size()-1;
+  int indice=maximo/2;
+	int minimo;
 	int contador=0;
   while(!fin){
     if(v.at(indice-1)<v.at(indice))
        if(v.at(indice+1)<v.at(indice))
           fin=true;
-       else
-          indice+=(tamanio-indice)/2;
+       else{
+				  minimo=indice;
+          indice=indice+((maximo-indice)/2);
+			 }
     else{
-			aux=tamanio;
-			tamanio=indice;
-    	indice=(aux-indice)/2;
+			maximo=indice;
+    	indice=minimo+((indice-minimo)/2);
 	 	}
 		contador++;
   }
