@@ -1,11 +1,13 @@
 #include<iostream>
 #include<vector>
 #include<cstdlib>
-
+#include <ctime>
+#include <climits>
+#include <cassert>
 
 using namespace std;
 
-int unimodal(vector<int> v){
+int unimodal_secuencial(vector<int> v){
   bool fin=false;
   int indice=1;
 
@@ -19,22 +21,26 @@ int unimodal(vector<int> v){
   return indice;
 }
 
-int main(){
+int main(int argc, char* argv[]){
   vector<int> array;
+  int valor = -1;
+ 
+  int v_size = atoi(argv[1]);
+  array.resize(v_size);
 
-  array.push_back(1);
-  array.push_back(5);
-  array.push_back(6);
-  array.push_back(8);
-  array.push_back(1);
+     int p = 1 + rand() % (v_size-2);
+     array.at(p) = v_size-1;
+     for (int i=0; i<p; i++) 
+        array.at(i)=i;
+     for (int i=p+1; i<v_size; i++) 
+        array.at(i)=v_size-1-i+p;
 
 
-  cout << "El vector contiene: " << endl;
-  for(int i=0; i < array.size(); i++)
-     cout << array.at(i) << endl;
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
+  valor = unimodal_secuencial(array);
+  tdespues=clock();
 
-
-  int valor = unimodal(array);
-
-  cout << "Maximo es: " << array.at(valor) << endl;
+  cout << v_size <<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 }
