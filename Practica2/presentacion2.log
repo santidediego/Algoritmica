@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.4)  4 APR 2017 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.4)  4 APR 2017 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1330,26 +1330,14 @@ LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
 (Font)              for symbol `textless' on input line 4.
 
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 5.
-LaTeX Font Info:    No file OMScmss.fd. on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 4.
+LaTeX Font Info:    No file OMScmss.fd. on input line 4.
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 5.
+(Font)              for symbol `textbraceleft' on input line 4.
 
-)
-Overfull \hbox (135.32993pt too wide) has occurred while \output is active
- [][]  
- []
-
-[5
-
-]
-\openout4 = `presentacion2.vrb'.
-
- (./presentacion2.vrb
 LaTeX Font Info:    Try loading font information for U+msa on input line 6.
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1365,6 +1353,20 @@ line 6.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 ))
+Overfull \vbox (100.17842pt too high) detected at line 67
+ []
+
+
+Overfull \hbox (135.32993pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+[5
+
+]
+\openout4 = `presentacion2.vrb'.
+
+ (./presentacion2.vrb)
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1436,13 +1438,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
  ) 
 Here is how much of TeX's memory you used:
- 19661 strings out of 493029
- 359688 string characters out of 6136235
- 588417 words of memory out of 5000000
- 22715 multiletter control sequences out of 15000+600000
- 8752 words of font info for 32 fonts, out of 8000000 for 9000
+ 19680 strings out of 493029
+ 359916 string characters out of 6136235
+ 589417 words of memory out of 5000000
+ 22731 multiletter control sequences out of 15000+600000
+ 10901 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,68p,410b,1412s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,16n,68p,410b,1413s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texli
@@ -1451,7 +1453,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy6.pfb>
-Output written on presentacion2.pdf (10 pages, 92645 bytes).
+Output written on presentacion2.pdf (10 pages, 93433 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  96 compressed objects within 1 object stream
