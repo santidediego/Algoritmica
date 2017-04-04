@@ -25,17 +25,14 @@
 \end{frame}
 
 \begin{frame}{Introducción}
-
+Nos ha tocado resolver el ejercicio serie unimodal de números.
+Para ello, hemos diseñado un algoritmo basado en “divide y vencerás” el cual tiene como objetivo encontrar el valor máximo de una serie unimodal. El orden de eficiencia de este algoritmo es $O(log(n))$ y lo hemos comparado con el algoritmo trivial para este problema que es de orden $O(n)$.
+\end{frame}
+\begin{frame}{Desarrollo de la Práctica}
+Para la comparación hemos obtenido unas tablas en las que se muestran el tiempo de ejecución según distintos número de elementos en los vectores, hemos representado los datos en una gráfica y hemos ajustado estos datos a la función obtenida por la eficiencia teórica por el ajuste de mínimos cuadrados.
 \end{frame}
 
 \begin{frame}[fragile]{Código Divide y Vencerás}
-	\lstset{language=C++, breaklines=true, backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\footnotesize}
-	\begin{lstlisting}
-	
-	\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]{Código secuencial}
 	\lstset{language=C++, breaklines=true, extendedchars=true,backgroundcolor=\color{softgray}, keywordstyle=\color{blue},stringstyle=\color{orange},caption={Función unimodal DyV}, basicstyle=\tiny}
 	\begin{lstlisting}
 int unimodal(vector<int> v)
@@ -154,6 +151,11 @@ int main(int argc, char* argv[])
 
 \end{frame}
 
+\begin{frame}{Tabla Datos}
+
+
+\end{frame}
+
 \begin{frame}{Eficiencia en el caso secuencial}
 
 \begin{figure}[H] 
@@ -177,9 +179,15 @@ int main(int argc, char* argv[])
 \begin{figure}[H] 
 \centering
 \includegraphics[angle=0,scale=0.5]{img/AjusteHibridoSec.png} 
-\caption{Pie de imagen} 
+\caption{Ajustada a la función $f(x)=a_0*x+a_1$} 
 \end{figure}
 
+\end{frame}
+
+\begin{frame}
+$f(x)=a_0*x+a_1
+a_0=1.69539e-09
+a_1=-0.00183396$
 \end{frame}
 
 \begin{frame}{Ajuste híbrido en el caso Divide y Vencerás}
@@ -187,13 +195,20 @@ int main(int argc, char* argv[])
 \begin{figure}[H] 
 \centering
 \includegraphics[angle=0,scale=0.5]{img/AjusteHibridoDyV.png} 
-\caption{Pie de imagen} 
+\caption{Ajustada a la función $f(x)=a_0*log(x)+a_1*x+a_2$} 
 \end{figure}
 
 \end{frame}
 
-\begin{frame}{Conclusión}
+\begin{frame}
+$f(x)=a_0*log(x)+a_1*x+a_2
+a_0=1.69539e-09
+a_1=1.25523e-09
+a_2=-0.00189877$
+\end{frame}
 
+\begin{frame}{Conclusión}
+Escribir conclusión.
 \end{frame}
 
 \end{document}
