@@ -1,5 +1,9 @@
 #include<iostream>
 #include<vector>
+#include<cstdlib>
+#include <ctime>
+#include <climits>
+#include <cassert>
 
 using namespace std;
 
@@ -8,7 +12,6 @@ int unimodal(vector<int> v){
   int maximo=v.size()-1;
   int indice=maximo/2;
 	int minimo;
-	int contador=0;
   while(!fin){
     if(v.at(indice-1)<v.at(indice))
        if(v.at(indice+1)<v.at(indice))
@@ -21,31 +24,30 @@ int unimodal(vector<int> v){
 			maximo=indice;
     	indice=minimo+((indice-minimo)/2);
 	 	}
-		contador++;
   }
-	cout << "El contador es: " << contador << endl;
   return indice;
  }
 
-int main(){
+int main(int argc, char *argv[]){
   vector<int> array;
+  int valor = -1;
+ 
+  int v_size = atoi(argv[1]);
+  array.resize(v_size);
 
-int tamanio=16;
-int posicion=9;
-for (int i=0, j=0; i<tamanio;i++,j--){
-	if(i<=posicion)
-	   array.push_back(i);
-	else
-	   array.push_back(j);
-}
-
-
-  cout << "El vector contiene: " << endl;
-  for(int i=0; i < array.size(); i++)
-     cout << array.at(i) << endl;
+     int p = 1 + rand() % (v_size-2);
+     array.at(p) = v_size-1;
+     for (int i=0; i<p; i++) 
+        array.at(i)=i;
+     for (int i=p+1; i<v_size; i++) 
+        array.at(i)=v_size-1-i+p;
 
 
-  int valor = unimodal(array);
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
+  valor = unimodal(array);
+  tdespues=clock();
 
-  cout << "Maximo es: " << array.at(valor) << endl;
+  cout << v_size <<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
 }
