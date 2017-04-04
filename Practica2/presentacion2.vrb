@@ -1,0 +1,5 @@
+\frametitle{Código secuencial}
+\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+	\begin{lstlisting}
+
+	\end{lstlisting}
