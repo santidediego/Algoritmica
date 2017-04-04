@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  4 APR 2017 19:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  4 APR 2017 23:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1009,6 +1009,15 @@ LaTeX Warning: Label `etiqueta' multiply defined.
 
 LaTeX Warning: Label `etiqueta' multiply defined.
 
+
+LaTeX Warning: Label `etiqueta' multiply defined.
+
+
+LaTeX Warning: Label `etiqueta' multiply defined.
+
+
+LaTeX Warning: Label `etiqueta' multiply defined.
+
 )
 \openout1 = `presentacion2.aux'.
 
@@ -1208,10 +1217,6 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./presentacion2.toc
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
-)
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1226,18 +1231,6 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 [3
 
 ]
-\openout4 = `presentacion2.vrb'.
-
- (./presentacion2.vrb
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-))
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1245,101 +1238,92 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 [4
 
 ]
-\openout4 = `presentacion2.vrb'.
-
- (./presentacion2.vrb
-LaTeX Font Info:    Try loading font information for OML+cmss on input line 4.
-LaTeX Font Info:    No file OMLcmss.fd. on input line 4.
-
-
-LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
-(Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textless' on input line 4.
-
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 5.
-LaTeX Font Info:    No file OMScmss.fd. on input line 5.
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 5.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 7.
+line 65.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-))
+)
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [5
 
-]
-\openout4 = `presentacion2.vrb'.
+] <img/1.png, id=65, 842.14626pt x 476.78125pt>
+File: img/1.png Graphic file (type png)
+ <use img/1.png>
+Package pdftex.def Info: img/1.png used on input line 75.
+(pdftex.def)             Requested size: 842.14421pt x 476.78008pt.
 
- (./presentacion2.vrb)
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [6
 
-]
-\openout4 = `presentacion2.vrb'.
-
- (./presentacion2.vrb)
+ <./img/1.png>] <img/2.png, id=75, 843.15pt x 517.935pt>
+File: img/2.png Graphic file (type png)
+ <use img/2.png>
+Package pdftex.def Info: img/2.png used on input line 85.
+(pdftex.def)             Requested size: 843.14793pt x 517.93372pt.
+pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.85 \end{frame}
+                
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [7
 
-]
-\openout4 = `presentacion2.vrb'.
-
- (./presentacion2.vrb)
+ <./img/2.png>]
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [8
 
-] <img/Eficiencia_sec.png, id=83, 481.8pt x 361.35pt>
-File: img/Eficiencia_sec.png Graphic file (type png)
-
-<use img/Eficiencia_sec.png>
-Package pdftex.def Info: img/Eficiencia_sec.png used on input line 170.
-(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
-
+] <img/3.png, id=90, 841.1425pt x 492.84125pt>
+File: img/3.png Graphic file (type png)
+ <use img/3.png>
+Package pdftex.def Info: img/3.png used on input line 103.
+(pdftex.def)             Requested size: 841.14046pt x 492.84003pt.
+pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.103 \end{frame}
+                 
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [9
 
- <./img/Eficiencia_sec.png (PNG copy)>]
-<img/Eficiencia_dyv.png, id=91, 481.8pt x 361.35pt>
-File: img/Eficiencia_dyv.png Graphic file (type png)
+ <./img/3.png>] <img/4.png, id=98, 838.13126pt x 518.93875pt>
+File: img/4.png Graphic file (type png)
 
-<use img/Eficiencia_dyv.png>
-Package pdftex.def Info: img/Eficiencia_dyv.png used on input line 180.
-(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
+<use img/4.png>
+Package pdftex.def Info: img/4.png used on input line 113.
+(pdftex.def)             Requested size: 838.12921pt x 518.93748pt.
 pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.180 \end{frame}
+l.113 \end{frame}
                  
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
@@ -1347,16 +1331,17 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [10
 
- <./img/Eficiencia_dyv.png (PNG copy)>]
-File: img/Eficiencia_dyv.png Graphic file (type png)
- <use img/Eficiencia_dyv.png>
-Package pdftex.def Info: img/Eficiencia_dyv.png used on input line 190.
+ <./img/4.png>] <img/Eficiencia_sec.png, id=106, 481.8pt x 361.35pt>
+File: img/Eficiencia_sec.png Graphic file (type png)
+
+<use img/Eficiencia_sec.png>
+Package pdftex.def Info: img/Eficiencia_sec.png used on input line 124.
 (pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
 pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.190 \end{frame}
+l.124 \end{frame}
                  
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
@@ -1364,31 +1349,35 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [11
 
-] <img/AjusteHibridoSec.png, id=104, 481.8pt x 361.35pt>
-File: img/AjusteHibridoSec.png Graphic file (type png)
+ <./img/Eficiencia_sec.png (PNG copy)>]
+<img/Eficiencia_dyv.png, id=113, 481.8pt x 361.35pt>
+File: img/Eficiencia_dyv.png Graphic file (type png)
 
-<use img/AjusteHibridoSec.png>
-Package pdftex.def Info: img/AjusteHibridoSec.png used on input line 200.
+<use img/Eficiencia_dyv.png>
+Package pdftex.def Info: img/Eficiencia_dyv.png used on input line 134.
 (pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
-
+pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.134 \end{frame}
+                 
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [12
 
- <./img/AjusteHibridoSec.png (PNG copy)>]
-<img/AjusteHibridoDyV.png, id=111, 481.8pt x 361.35pt>
-File: img/AjusteHibridoDyV.png Graphic file (type png)
-
-<use img/AjusteHibridoDyV.png>
-Package pdftex.def Info: img/AjusteHibridoDyV.png used on input line 210.
+ <./img/Eficiencia_dyv.png (PNG copy)>]
+File: img/Eficiencia_dyv.png Graphic file (type png)
+ <use img/Eficiencia_dyv.png>
+Package pdftex.def Info: img/Eficiencia_dyv.png used on input line 144.
 (pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
 pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 \end{frame}
+l.144 \end{frame}
                  
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
@@ -1396,12 +1385,44 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [13
 
- <./img/AjusteHibridoDyV.png (PNG copy)>]
+] <img/AjusteHibridoSec.png, id=127, 481.8pt x 361.35pt>
+File: img/AjusteHibridoSec.png Graphic file (type png)
+
+<use img/AjusteHibridoSec.png>
+Package pdftex.def Info: img/AjusteHibridoSec.png used on input line 154.
+(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
+
 Overfull \hbox (135.32993pt too wide) has occurred while \output is active
  [][]  
  []
 
 [14
+
+ <./img/AjusteHibridoSec.png (PNG copy)>]
+<img/AjusteHibridoDyV.png, id=134, 481.8pt x 361.35pt>
+File: img/AjusteHibridoDyV.png Graphic file (type png)
+
+<use img/AjusteHibridoDyV.png>
+Package pdftex.def Info: img/AjusteHibridoDyV.png used on input line 164.
+(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
+pdfTeX warning (ext4): destination with the same identifier (name{etiqueta}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.164 \end{frame}
+                 
+Overfull \hbox (135.32993pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+[15
+
+ <./img/AjusteHibridoDyV.png (PNG copy)>]
+Overfull \hbox (135.32993pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+[16
 
 ]
 \tf@nav=\write6
@@ -1413,14 +1434,14 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `presentacion2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
  (./presentacion2.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
 Package rerunfilecheck Info: File `presentacion2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1429,33 +1450,30 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 170.
  ) 
 Here is how much of TeX's memory you used:
- 19506 strings out of 493089
- 358793 string characters out of 6134841
- 587760 words of memory out of 5000000
- 22495 multiletter control sequences out of 15000+600000
- 8752 words of font info for 32 fonts, out of 8000000 for 9000
+ 19098 strings out of 493089
+ 355878 string characters out of 6134841
+ 432362 words of memory out of 5000000
+ 22098 multiletter control sequences out of 15000+600000
+ 10696 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,68p,410b,1401s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on presentacion2.pdf (14 pages, 172197 bytes).
+ 56i,16n,65p,410b,549s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Navigation18} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
+Output written on presentacion2.pdf (16 pages, 417848 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 
