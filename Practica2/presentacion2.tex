@@ -1,0 +1,122 @@
+\documentclass[12pt]{beamer}
+\usetheme{Warsaw}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings} %Para codigo
+\author{Daniel Bolaños Martínez, José María Borrás Serrano, Santiago De Diego De Diego, Fernando De la Hoz Moreno}
+\title{Práctica 2: Algoritmos Divide y Vencerás}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+\institute{ETSIIT} 
+\date{} 
+
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\begin{frame}{Introducción}
+
+\end{frame}
+
+\begin{frame}[fragile]{Código Divide y Vencerás}
+	\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+	\begin{lstlisting}
+	
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Código secuencial}
+	\begin{block}
+		\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+	\begin{lstlisting}
+	int unimodal_secuencial(vector<int> v){
+  bool fin=false;
+  int indice=1;
+
+  while(!fin){
+     if(v.at(indice+1)<v.at(indice))
+        fin=true;
+     else
+        indice++;
+  }
+  
+  return indice;
+}
+	\end{lstlisting}
+	\end{block}
+
+\begin{block}
+		\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+	\begin{lstlisting}
+int main(int argc, char* argv[]){
+  vector<int> array;
+  int valor = -1;
+ 
+  int v_size = atoi(argv[1]);
+  array.resize(v_size);
+
+     int p = 1 + rand() % (v_size-2);
+     array.at(p) = v_size-1;
+     for (int i=0; i<p; i++) 
+        array.at(i)=i;
+     for (int i=p+1; i<v_size; i++) 
+        array.at(i)=v_size-1-i+p;
+
+
+  clock_t tantes;
+  clock_t tdespues;
+  tantes=clock();
+  valor = unimodal_secuencial(array);
+  tdespues=clock();
+
+  for(int i=0; i < v_size; i++)
+     cout << array.at(i) << endl;
+
+  cout << "Maximo: " << array.at(valor) << endl;
+
+  cout << v_size <<" "<< (double)(tdespues - tantes) / CLOCKS_PER_SEC << endl;
+}
+	\end{lstlisting}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Comparación de la eficiencia}
+
+\begin{block}{Eficiencia teórica}
+\begin{figure}[H] 
+\centering
+\includegraphics[angle=90,scale=0.4]{img/nombre.jpg} 
+\caption{Pie de imagen} 
+\label{etiqueta} 
+\end{figure}
+\end{block}
+
+\begin{block}{Eficiencia empírica}
+
+\end{block}
+
+\begin{block}{Eficiencia híbrida}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Conclusión}
+
+\end{frame}
+
+\end{document}
