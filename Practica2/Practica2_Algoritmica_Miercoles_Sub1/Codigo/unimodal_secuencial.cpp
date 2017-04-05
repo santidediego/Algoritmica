@@ -29,8 +29,12 @@ int main(int argc, char* argv[]){
   int v_size = atoi(argv[1]);
   array.resize(v_size);
 
-for(int i=0; i<100; ++i){
-	int p = 1 + rand() % (v_size-2);
+for(int i=0; i<20; ++i){
+     int p;
+     if(i<10)
+        p=1;
+     else
+        p=v_size-2;
   array.at(p) = v_size-1;
   for (int i=0; i<p; i++)
     array.at(i)=i;

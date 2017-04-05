@@ -1,12 +1,12 @@
 #!/bin/csh
 
-@ inicio = 1000000
-@ fin = 26000000
+@ inicio = (1048576)
+@ fin = (1073741824)
 
 @ i = $inicio
 echo > salida_unimodal_sec.dat
 while($i <= $fin)
 echo Ejecución tam = $i
-echo `./unimodal_secuencial $i` >> salida_unimodal_sec.dat
-@ i += 1000000
+echo `./divide $i` >> salida_divide_sec.dat
+@ i *= 2
 end
