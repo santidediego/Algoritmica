@@ -284,10 +284,10 @@ Tamaño Vectores & Tiempo Secuencial \\
 f(x)=a_0*x+a_1 
 \]
 \[
-a_0=1.69539e-09
+a_0=1.75072e-09
 \]
 \[
-a_1=-0.00183396
+a_1=-0.000131396
 \]
 \end{frame}
 
@@ -306,22 +306,22 @@ a_1=-0.00183396
 f(x)=a_0*log(x)+a_1*x+a_2
 \]
 \[
-a_0=1.69539e-09
+a_0=1.75072e-09
 \]
 \[
-a_1=1.25523e-09
+a_1=1.24488e-10
 \]
 \[
-a_2=-0.00189877
+a_2=0.000151147 
 \]
 \end{frame}
 
 \begin{frame}{Conclusión}
-Como hemos podido observar, los algoritmos de Divide y Vencerás son mucho más eficientes y rápidos que los que podamos pensar de primeras para dar solución a un problema, esto básicamente funciona así gracias a la genial idea del método. 
-
+Como podemos observar, el mismo problema se puede resolver de forma más rápida y eficiente si empleamos un algoritmo de tipo Divide y Vencerás que uno secuencial.
 \vspace{5mm} %5mm vertical space
-
-Dividiendo el problema en otros más pequeños y descartando las soluciones que no sean adecuadas, consiguiendo mayor eficiencia y rapidez que realizando un algoritmo de forma Greedy o de la primera forma que se nos ocurriese.
+En este caso con Divide y Vencerás podemos conseguir que la eficiencia del algoritmo pase de ser O(n) a O(log n), por lo que somos capaces de procesar muchos más datos en un tiempo menor. 
+\vspace{5mm} %5mm vertical space
+De esta forma se puede concluir que siempre que vayamos a usar datos lo bastante grandes es mejor realizar el algoritmo mediante Divide y Vencerás que mediante uno secuencial. 
 \end{frame}
 
 \end{document}
