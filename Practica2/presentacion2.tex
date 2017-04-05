@@ -317,13 +317,33 @@ a_2=0.000151147
 \end{frame}
 
 \begin{frame}{Correlación}
+\begin{itemize}
+\item Unimodal secuencial:
 
+	Coeficiente de correlación en el caso lineal: \\
+	0,999967757\\
+	Coeficiente de correlación en el caso logarítmico: 
+	0,999967634
+	
+\vspace{3mm} %5mm vertical space
+
+\item Unimodal Divide y Vencerás:
+
+	Coeficiente de correlación en el caso lineal: \\
+	0,993561274\\
+	Coeficiente de correlación en el caso logarítmico: 
+	0,99566217
+	
+\vspace{5mm} %5mm vertical space
+
+En el caso secuencial el ajuste lineal es mejor, mientras que en Divide y Vencerás el mejor ajuste es el logarítmico. 
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusión}
 Como podemos observar, el mismo problema se puede resolver de forma más rápida y eficiente si empleamos un algoritmo de tipo Divide y Vencerás que uno secuencial.
 \vspace{5mm} %5mm vertical space
-En este caso con Divide y Vencerás podemos conseguir que la eficiencia del algoritmo pase de ser O(n) a O(log n), por lo que somos capaces de procesar muchos más datos en un tiempo menor. 
+En este caso con Divide y Vencerás podemos conseguir que la eficiencia del algoritmo pase de ser $O(n)$ a $O(log n)$, por lo que somos capaces de procesar muchos más datos en un tiempo menor. 
 \vspace{5mm} %5mm vertical space
 De esta forma se puede concluir que siempre que vayamos a usar datos lo bastante grandes es mejor realizar el algoritmo mediante Divide y Vencerás que mediante uno secuencial. 
 \end{frame}
