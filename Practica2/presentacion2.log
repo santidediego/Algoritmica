@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.4)  5 APR 2017 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.3.4)  5 APR 2017 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1412,8 +1412,8 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [11
 
- <./img/Eficiencia_sec.png (PNG copy)>]
-<img/Eficiencia_dyv.png, id=103, 481.8pt x 361.35pt>
+ <./img/Eficiencia_sec.png>]
+<img/Eficiencia_dyv.png, id=104, 481.8pt x 361.35pt>
 File: img/Eficiencia_dyv.png Graphic file (type png)
 
 <use img/Eficiencia_dyv.png>
@@ -1426,8 +1426,8 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [12
 
- <./img/Eficiencia_dyv.png (PNG copy)>]
-<img/AjusteHibridoSec.png, id=110, 481.8pt x 361.35pt>
+ <./img/Eficiencia_dyv.png>]
+<img/AjusteHibridoSec.png, id=112, 481.8pt x 361.35pt>
 File: img/AjusteHibridoSec.png Graphic file (type png)
 
 <use img/AjusteHibridoSec.png>
@@ -1447,7 +1447,7 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 
 [14
 
-] <img/AjusteHibridoDyV.png, id=126, 481.8pt x 361.35pt>
+] <img/AjusteHibridoDyV.png, id=128, 481.8pt x 361.35pt>
 File: img/AjusteHibridoDyV.png Graphic file (type png)
 
 <use img/AjusteHibridoDyV.png>
@@ -1475,6 +1475,13 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 [17
 
 ]
+Overfull \hbox (135.32993pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+[18
+
+]
 \tf@nav=\write6
 \openout6 = `presentacion2.nav'.
 
@@ -1484,14 +1491,14 @@ Overfull \hbox (135.32993pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `presentacion2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 331.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 331.
  (./presentacion2.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 331.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 331.
 Package rerunfilecheck Info: File `presentacion2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1502,11 +1509,11 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 327.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 331.
  ) 
 Here is how much of TeX's memory you used:
- 19727 strings out of 493029
- 360399 string characters out of 6136235
+ 19729 strings out of 493029
+ 360418 string characters out of 6136235
  591529 words of memory out of 5000000
  22758 multiletter control sequences out of 15000+600000
  13689 words of font info for 50 fonts, out of 8000000 for 9000
@@ -1523,10 +1530,10 @@ s/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 ic/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy6.pfb>
-Output written on presentacion2.pdf (17 pages, 204891 bytes).
+Output written on presentacion2.pdf (18 pages, 178556 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
+ 200 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
