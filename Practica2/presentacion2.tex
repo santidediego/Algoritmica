@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{ragged2e}
 \definecolor{softgray}{rgb}{0.8,0.8,0.8}
 \usepackage{listings} %Para codigo
 \author{Daniel Bolaños Martínez, José María Borrás Serrano, Santiago De Diego De Diego, Fernando De la Hoz Moreno}
@@ -25,15 +26,36 @@
 \end{frame}
 
 \begin{frame}{Serie Unimodal de Números}{Presentación del problema}
-Sea un vector v de números de tamaño n, todos distintos, de forma que existe un índice p (que no es ni el primero ni el último) tal que a la izquierda de p los números están ordenados de forma creciente y a la derecha de p están ordenados de forma decreciente. 
+\justify
+Sea un vector \textbf{\textit{v}} de números de tamaño \textbf{\textit{n}}, todos distintos, de forma que existe un índice \textbf{\textit{p}} (que no es ni el primero ni el último) tal que a la izquierda de \textbf{\textit{p}} los números están ordenados de forma creciente y a la derecha de \textbf{\textit{p}} están ordenados de forma decreciente. 
 \end{frame}
 
 \begin{frame}{Algoritmos}
-Para resolver el problema, hemos diseñado un algoritmo basado en “divide y vencerás” el cual tiene como objetivo encontrar el valor máximo de una serie unimodal. El orden de eficiencia de este algoritmo es $O(log(n))$ y lo hemos comparado con el algoritmo trivial para este problema que es de orden $O(n)$.
+\justify
+Para resolver el problema, hemos diseñado un algoritmo basado en \textbf{\textit{"divide y vencerás"}} el cual tiene como objetivo encontrar el valor máximo de una serie unimodal. El orden de eficiencia de este algoritmo es $O(log(n))$ y lo hemos comparado con el algoritmo trivial para este problema que es de orden $O(n)$.
+\end{frame}
+
+\begin{frame}{Método Divide y Vencerás}
+\textbf{\underline{Pasos del método general}}
+
+\vspace{7mm} %5mm vertical space
+
+\begin{itemize}
+\item Dividir el problema $P$ en varios subproblemas $P_i$
+
+\vspace{7mm} %5mm vertical space
+
+\item Resolver los subproblemas
+
+\vspace{7mm} %5mm vertical space
+
+\item Combinar las soluciones $S_i$ de los subproblemas para obtener la solución $S$ del problema inicial
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Desarrollo de la Práctica}
-Para la comparación hemos obtenido unas tablas en las que se muestran el tiempo de ejecución según distintos número de elementos en los vectores, hemos representado los datos en una gráfica y hemos ajustado estos datos a la función obtenida por la eficiencia teórica usando el ajuste de mínimos cuadrados.
+\justify
+Para la comparación hemos obtenido unas tablas en las que se muestran el tiempo de ejecución según distintos número de elementos en los vectores, hemos representado los datos en una gráfica y hemos ajustado estos datos a la función obtenida por la eficiencia teórica usando el ajuste de \textbf{\textit{mínimos cuadrados}}.
 \end{frame}
 
 \begin{frame}[fragile]{Código Divide y Vencerás}
@@ -64,7 +86,7 @@ int unimodal(vector<int> v)
 	}
 	return indice;
 }
-	\end{lstlisting}
+	\end{lstlisting} 
 \end{frame}
 \begin{frame}[fragile]
 	\lstset{language=C++, breaklines=true, extendedchars=true, caption={Función main DyV},backgroundcolor=\color{softgray},keywordstyle=\color{blue},stringstyle=\color{orange},basicstyle=\tiny}
@@ -156,6 +178,7 @@ int main(int argc, char* argv[])
 \end{frame}
 
 \begin{frame}{Tabla Datos DyV}
+\centering
 \begin{tabular}{|c|c|c|}
 \hline 
 Tamaño Vectores & Tiempo Divide y Vencerás \\ 
@@ -185,6 +208,7 @@ Tamaño Vectores & Tiempo Divide y Vencerás \\
 \end{frame}
 
 \begin{frame}{Tabla Datos Secuencial}
+\centering
 \begin{tabular}{|c|c|}
 \hline 
 Tamaño Vectores & Tiempo Secuencial \\ 
@@ -217,6 +241,7 @@ Tamaño Vectores & Tiempo Secuencial \\
 \end{frame}
 
 \begin{frame}
+\centering
 \begin{tabular}{|c|c|}
 \hline 
 Tamaño Vectores & Tiempo Secuencial \\
@@ -275,14 +300,14 @@ Tamaño Vectores & Tiempo Secuencial \\
 \begin{figure}[H] 
 \centering
 \includegraphics[angle=0,scale=0.5]{img/AjusteHibridoSec.png} 
-\caption{Ajustada a la función $f(x)=a_0*x+a_1$} 
+\caption{Ajustada a la función $f(x)=a_0 \cdot x+a_1$} 
 \end{figure}
 
 \end{frame}
 
 \begin{frame}
 \[
-f(x)=a_0*x+a_1 
+f(x)=a_0 \cdot x+a_1 
 \]
 \[
 a_0=1.75072e-09
@@ -297,14 +322,14 @@ a_1=-0.000131396
 \begin{figure}[H] 
 \centering
 \includegraphics[angle=0,scale=0.5]{img/AjusteHibridoDyV.png} 
-\caption{Ajustada a la función $f(x)=a_0*log(x)+a_1*x+a_2$} 
+\caption{Ajustada a la función $f(x)=a_0 \cdot log(x)+a_1 \cdot x+a_2$} 
 \end{figure}
 
 \end{frame}
 
 \begin{frame}
 \[
-f(x)=a_0*log(x)+a_1*x+a_2
+f(x)=a_0 \cdot log(x)+a_1 \cdot x+a_2
 \]
 \[
 a_0=1.75072e-09
@@ -318,17 +343,20 @@ a_2=0.000151147
 \end{frame}
 
 \begin{frame}{Correlación}
+\justify
 \begin{itemize}
-\item \underline{Unimodal secuencial:}
+\item \underline{\textbf{Unimodal secuencial:}}
+\vspace{3mm} %5mm vertical space
 
 	Coeficiente de correlación en el caso lineal: \\
 	0,999967757\\
 	Coeficiente de correlación en el caso logarítmico: 
 	0,999967634
 	
-\vspace{3mm} %5mm vertical space
+\vspace{2mm} %5mm vertical space
 
-\item \underline{Unimodal Divide y Vencerás:}
+\item \underline{\textbf{Unimodal Divide y Vencerás:}}
+\vspace{3mm} %5mm vertical space
 
 	Coeficiente de correlación en el caso lineal: \\
 	0,993561274\\
@@ -336,21 +364,22 @@ a_2=0.000151147
 	0,99566217
 	
 \vspace{5mm} %5mm vertical space
-
-En el caso secuencial el ajuste lineal es mejor, mientras que en Divide y Vencerás el mejor ajuste es el logarítmico. 
+\justify
+En el caso secuencial el ajuste \textbf{\textit{lineal}} es mejor, mientras que en Divide y Vencerás el mejor ajuste es el \textbf{\textit{logarítmico}}. 
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Umbral de la eficiencia}
-En algunos casos el algoritmo secuencial podría resultar más eficiente que el logarítmico, si tomásemos por ejemplo, tamaños pequeños para los vectores.
+\justify
+En algunos casos el algoritmo \textbf{\textit{secuencial}} podría resultar más eficiente que el logarítmico, si tomásemos por ejemplo, tamaños pequeños para los vectores.
 
 \vspace{5mm} %5mm vertical space
-
+\justify
 Por tanto sería interesante calcular el tamaño de los vectores a partir del cual es mejor usar una versión que otra y en el caso de que exista tal punto, añadir en el código que hasta ese valor, ejecutase el algoritmo que en cada caso fuese más eficiente.
 
 \vspace{5mm} %5mm vertical space
-
-Para ello representaremos en una gráfica ambas veriones para mismos valores e intentaremos encontrar este punto umbral.
+\justify
+Para ello representaremos en una gráfica ambas veriones para mismos valores e intentaremos encontrar este \textbf{\textit{punto umbral}}.
  
 \end{frame}
 
@@ -365,21 +394,22 @@ Para ello representaremos en una gráfica ambas veriones para mismos valores e i
 \end{frame}
 
 \begin{frame}{}
-
-La gráfica umbral obtenida representa los dos algoritmos muestra que para todos los valores, el algoritmo programado con la metodología de divide y vencerás siempre es más eficiente que el secuencial, por tanto obviaremos lo dicho anteriormente, puesto que siempre será mejor usar este programa para cualquier valor de vectores.
+\justify
+La gráfica umbral obtenida representa los dos algoritmos muestra que para todos los valores, el algoritmo programado con la metodología de divide y vencerás siempre es más \textbf{\textit{eficiente}} que el secuencial, por tanto obviaremos lo dicho anteriormente, puesto que siempre será mejor usar este programa para cualquier valor de vectores.
  
 \end{frame}
 
 \begin{frame}{Conclusión}
+\justify
 Como podemos observar, el mismo problema se puede resolver de forma más rápida y eficiente si empleamos un algoritmo de tipo Divide y Vencerás que uno secuencial.
 
-\vspace{5mm} %5mm vertical space
+\vspace{3mm} %5mm vertical space
+\justify
+En este caso con \textbf{\textit{Divide y Vencerás}} podemos conseguir que la eficiencia del algoritmo pase de ser $O(n)$ a $O(log n)$, por lo que somos capaces de procesar muchos más datos en un tiempo menor. 
 
-En este caso con Divide y Vencerás podemos conseguir que la eficiencia del algoritmo pase de ser $O(n)$ a $O(log n)$, por lo que somos capaces de procesar muchos más datos en un tiempo menor. 
-
-\vspace{5mm} %5mm vertical space
-
-De esta forma se puede concluir que siempre que vayamos a usar datos lo bastante grandes es mejor realizar el algoritmo mediante Divide y Vencerás que mediante uno secuencial. 
+\vspace{3mm} %5mm vertical space
+\justify
+De esta forma se puede concluir que siempre será \textbf{\textit{más}} eficiente resolver el problema utilizando nuestro algoritmo DV que por el método secuencial.
 \end{frame}
 
 \end{document}
