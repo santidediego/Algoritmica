@@ -11,7 +11,7 @@ int unimodal(vector<int> v){
   bool fin=false;
   int maximo=v.size()-1;
   int indice=maximo/2;
-	int minimo;
+	int minimo=0;
   while(!fin){
     if(v.at(indice-1)<v.at(indice))
        if(v.at(indice+1)<v.at(indice))
