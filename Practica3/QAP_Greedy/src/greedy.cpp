@@ -6,7 +6,6 @@
 		n=num;
 		matriz1=m1;
 		matriz2=m2;
-
 	}
 
 
@@ -29,23 +28,20 @@
 		return c;
 	}
 
-	vector<double> Problema::solucion(){
+	void Problema::solucionProblema(){
 		vector<double> v1 = candidatos(matriz1);
 		vector<double> v2 = candidatos(matriz2);
-		vector<double> sol(n);
 		int i1, i2;
 
 		for(int i=0; i<n; ++i){
 			i1 = funcion_seleccion1(v1);
 			i2 = funcion_seleccion2(v2);
 
-			sol[i1]=v2[i2];
+			solucion[i1]=i2;
 			v1[i1]=-1;
 			v2[i2]=-1;
 
 		}
-
-		return sol;
 	}
 
 	int Problema::funcion_seleccion2(vector<double>& v){
@@ -84,6 +80,7 @@
 					matriz1[i].resize(n);
 					matriz2[i].resize(n);
 				}
+			solucion.resize(n);
 	}
 
 	Problema& Problema::operator=(const Problema& m)
@@ -91,6 +88,7 @@
 			n=m.n;
 			matriz1 = m.matriz1;
 			matriz2 = m.matriz2;
+			solucion = m.solucion;
 
 			return *this;
 	}
@@ -99,6 +97,7 @@
 			n = m.n;
 			matriz1 = m.matriz1;
 			matriz2 = m.matriz2;
+			solucion = m.solucion;
 	}
 
 
@@ -127,6 +126,10 @@
 
 	void Problema::setDato2(int i, int j, double d){
 			matriz2[i][j] = d;
+	}
+
+	vector<double> Problema::getSolucion(){
+			return solucion;
 	}
 
 	istream& operator>>(istream& is, Problema& m)
@@ -168,22 +171,11 @@
 
 	ostream& operator<<(ostream& os,  Problema& m)
 	{
-			os << m.getNum() << endl;
-			for (int i=0;i<m.n;i++)
-			{
-					for(int j=0;j<m.n;j++)
-					{
-							os << m.getDato1(i,j) <<" ";
-					}
-					os << endl;
-			}
-			for (int i=0;i<m.n;i++)
-			{
-					for(int j=0;j<m.n;j++)
-					{
-							os << m.getDato2(i,j) <<" ";
-					}
-					os << endl;
-			}
+    			for (int i=1; i<=m.getNum(); i++)
+    				os << i << "  ";
+    			os << endl;
+    			for (int i=0; i<m.getNum(); i++)
+    				os << m.solucion[i]+1 << "  "; //Para que concuerden los índices
+    			os << endl;
 			return os;
 	}

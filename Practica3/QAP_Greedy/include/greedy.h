@@ -10,6 +10,7 @@ private:
 	vector<vector<double> > matriz1;
 	vector<vector<double> > matriz2;
 	int n;
+        vector<double> solucion;
 
 public:
 
@@ -27,7 +28,7 @@ public:
 
 	vector<double> candidatos(const vector<vector<double> >& m);
 
-	vector<double> solucion();
+	void solucionProblema();
 
 	int funcion_seleccion2(vector<double>& v);
 
@@ -42,6 +43,8 @@ public:
 	void setDato1(int i, int j, double d);
 
 	void setDato2(int i, int j, double d);
+
+	vector<double> getSolucion();
 
 	friend istream& operator>>(istream& is, Problema& m);
 
