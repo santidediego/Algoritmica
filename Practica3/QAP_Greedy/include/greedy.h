@@ -7,8 +7,8 @@ using namespace std;
 class Problema{
 
 private:
-	vector<vector<double> > matriz1;
-	vector<vector<double> > matriz2;
+	vector<vector<double> > MatrizHabitaciones;
+	vector<vector<double> > MatrizOficinistas;
 	int n;
         vector<double> solucion;
 

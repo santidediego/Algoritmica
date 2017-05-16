@@ -1,0 +1,14 @@
+Compilación: Ejecutar make en su terminal.
+
+Ejecución: 
+
+1. Crear un archivo de texto con el siguiente formato.
+	Numero de filas/columnas
+	Matriz de distancias a Habitaciones
+	Matriz de flujo de trabajo de Oficinistas
+
+1.1 Formato similar al proporcionado en dat/matrices.dat
+
+2. Ejecutar el programa que se guardará por defecto en la carpeta bin del proyecto	      
+
+	./bin/prueba nombre_archivo
