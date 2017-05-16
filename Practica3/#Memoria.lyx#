@@ -1,0 +1,279 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\author{Daniel Bolaños Martínez, 
+\\\\
+José María Borrás Serrano,
+\\\\
+Santiago de Diego de Diego, 
+\\\\
+Fernando de la Hoz Moreno}
+\date{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Algoritmos Greedy: Problema QAP
+\end_layout
+
+\begin_layout Section
+Planteamiento del problema
+\end_layout
+
+\begin_layout Standard
+El problema, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+P
+\end_layout
+
+\end_inset
+
+, consiste en asignar a cada oficinista de un grupo de oficinistas, una
+ habitación de un grupo de habitaciones de forma que se minimice el coste
+ de asignar a cada habitación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+i
+\end_layout
+
+\end_inset
+
+ el oficinista 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+p(i)
+\end_layout
+
+\end_inset
+
+.
+ Matemáticamente, el problema puede definirse como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p^{*}=min_{p}{H(p)}=min_{p}{{\displaystyle \sum_{i=0}^{N-1}{\displaystyle \sum_{i=0}^{N-1}}f_{p(i)p(j)}d_{ij}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f
+\end_layout
+
+\end_inset
+
+ es la matriz de flujos de intersección desde el oficinista 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+p(i)
+\end_layout
+
+\end_inset
+
+ al 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+p(j)
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\end_inset
+
+ es la matriz de distancias desde la habitación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+i
+\end_layout
+
+\end_inset
+
+ a la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+j
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, la matriz de distancias 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+d
+\end_layout
+
+\end_inset
+
+ puede ser:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c|cccc}
+\hline 0 & 7 & 14 & 20 & 3\\
+4 & 0 & 10 & 17 & 49\\
+51 & 1 & 0 & 43 & 71\\
+90 & 101 & 47 & 3 & 0
+\\\hline \end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pasos en el desarrollo de un algoritmo voraz
+\end_layout
+
+\begin_layout Standard
+En un algoritmo voraz tenemos que: 
+\end_layout
+
+\begin_layout Itemize
+Diseñar una lista de candidatos 
+\end_layout
+
+\begin_layout Itemize
+Identificar una lista de candidatos ya utilizados 
+\end_layout
+
+\begin_layout Itemize
+Diseñar una función solución 
+\end_layout
+
+\begin_layout Itemize
+Diseñar un criterio de factibilidad
+\end_layout
+
+\begin_layout Itemize
+Diseñar una función de selección del candidato más prometedor para formar
+ parte de la solución 
+\end_layout
+
+\begin_layout Itemize
+Encontrar una función objetivo de minimización/maximización.
+ 
+\end_layout
+
+\end_body
+\end_document
