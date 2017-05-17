@@ -363,7 +363,10 @@ distancia entre ellos, ya que las conexiones son de alto costo.
 Para la resolución de ambos problemas, podríamos aplicar exactamente los mismos pasos utilizados en nuestro algoritmo para obtener una solución adecuada.
 
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
-
+Si denotamos como $n$ el número de filas y de columnas de la matriz (recordar que son matrices cuadradas), entonces se tiene que el orden de eficiencia del algoritmo de búsqueda de la solución es $o(n^2)$.
+\paragraph{}
+Esto es debido a que el algoritmo se compone de dos funciones de selección distintas, cada una de ellas recorre el vector de principio a fin, el cual tiene longitud $n$.  Recordar que al ser las matrices de tamaño $n\times n$, es necesario que el vector sea de longitud $n$ para poder realizar la multiplicación correctamente. Por último, se engloban ambas funciones de selección dentro de un bucle \textit{for} que de tamaño $n$, por lo que la eficiencia total viene dada, como apuntábamos, por:
+$$\textrm{Eficiencia}= (2n)n=2n^2=o(n^2)$$
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
 
 \textbf{Compilación:} Ejecutar make en su terminal.
