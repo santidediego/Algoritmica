@@ -1,0 +1,391 @@
+% Tipo de documento y opciones.
+\documentclass[11pt, a4paper]{article}
+
+
+%---------------------------------------------------------------------------
+%   PAQUETES
+%---------------------------------------------------------------------------
+
+% Idioma y codificación para Español.
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla, es-lcroman, es-noquoting]{babel}
+\selectlanguage{spanish} 
+%\usepackage[T1]{fontenc}
+
+% Fuente utilizada.
+\usepackage{courier}    % Fuente Courier.
+\usepackage{microtype}  % Mejora la letra final de cara al lector.
+
+% Diseño de página.
+\usepackage{fancyhdr}   % Utilizado para hacer títulos propios.
+\usepackage{lastpage}   % Referencia a la última página.
+\usepackage{extramarks} % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}    % Crea una nueva línea entre párrafos.
+\usepackage{geometry}            % Geometría de las páginas.
+
+% Símbolos y matemáticas.
+\usepackage{amssymb, amsmath, amsthm, amsfonts, amscd}
+\usepackage{upgreek}
+
+% Otros.
+\usepackage{enumitem}   % Listas mejoradas.
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}   % Gráficos.
+
+
+%---------------------------------------------------------------------------
+%   OPCIONES PERSONALIZADAS
+%---------------------------------------------------------------------------
+
+% Redefinir letra griega épsilon.
+\let\epsilon\upvarepsilon
+
+% Formato de texto.
+\linespread{1.1}            % Espaciado entre líneas.
+\setlength\parindent{0pt}   % No indentar el texto por defecto.
+\setlist{leftmargin=.5in}   % Indentación para las listas.
+
+% Estilo de página.
+\pagestyle{fancy}
+\fancyhf{}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm}   % Márgenes y cabecera.
+
+% Ruta donde buscar gráficos
+\graphicspath{{../Recursos/Plantillas/}, {Recursos/Plantillas/}}
+
+% Redefinir entorno de demostración (reducir espacio superior)
+%\makeatletter
+%\renewenvironment{proof}[1][\proofname] {\vspace{-15pt}\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\it#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
+%\makeatother
+
+% Aumentar el tamaño del interlineado
+\linespread{1.3}
+
+
+%---------------------------------------------------------------------------
+%   COMANDOS PERSONALIZADOS
+%---------------------------------------------------------------------------
+
+% Valor absoluto: \abs{}
+\providecommand{\abs}[1]{\lvert#1\rvert}    
+
+% Fracción grande: \ddfrac{}{}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
+% Texto en negrita en modo matemática: \bm{}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Línea horizontal.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+% Letras de conjuntos
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% Sucesiones
+\newcommand{\xn}{\{x_n\}}
+\newcommand{\fn}{\{f_n\}}
+
+
+%---------------------------------------------------------------------------
+%   CABECERA Y PIE DE PÁGINA
+%---------------------------------------------------------------------------
+
+% Cabecera del documento.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize 
+	\end{minipage}
+}
+
+% Texto de la cabecera.
+\lhead{\subject}  % Izquierda.
+\chead{}            % Centro.
+\rhead{\docauthor}    % Derecha.
+
+% Pie de página del documento.
+\renewcommand\footrule{                                 
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize   
+	\end{minipage}\par
+}
+
+% Texto del pie de página.
+\lfoot{}                                                 % Izquierda
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Derecha.
+
+
+%---------------------------------------------------------------------------
+%   ENTORNOS PARA MATEMÁTICAS
+%---------------------------------------------------------------------------
+
+% Nuevo estilo para definiciones.
+\newtheoremstyle{definition-style} % Nombre del estilo.
+{10pt}               % Espacio por encima.
+{10pt}               % Espacio por debajo.
+{}                   % Fuente del cuerpo.
+{}                   % Identación.
+{\bf}                % Fuente para la cabecera.
+{.}                  % Puntuación tras la cabecera.
+{.5em}               % Espacio tras la cabecera.
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}     % Especificación de la cabecera (actual: nombre en negrita).
+
+% Nuevo estilo para notas.
+\newtheoremstyle{remark-style} 
+{10pt}                
+{10pt}                
+{}                   
+{}                   
+{\itshape}          
+{.}                  
+{.5em}               
+{}                  
+
+% Nuevo estilo para teoremas y proposiciones.
+\newtheoremstyle{theorem-style}
+{10pt}                
+{10pt}                
+{\itshape}           
+{}                  
+{\bf}             
+{.}                
+{.5em}               
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}                   
+
+% Nuevo estilo para ejemplos.
+\newtheoremstyle{example-style}
+{10pt}                
+{10pt}                
+{}                  
+{}                   
+{\scshape}              
+{:}                 
+{.5em}               
+{}                   
+
+% Teoremas, proposiciones y corolarios.
+\theoremstyle{theorem-style}
+\newtheorem{nth}{Teorema}[section]
+\newtheorem*{nprop}{Proposición}
+\newtheorem{ncor}{Corolario}[section]
+
+% Definiciones, ejercicios.
+\theoremstyle{definition-style}
+\newtheorem*{ndef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+
+% Notas, soluciones.
+\theoremstyle{remark-style}
+\newtheorem*{nota}{Nota}
+\newtheorem*{sol}{Solución}
+
+% Ejemplos.
+\theoremstyle{example-style}
+\newtheorem{ejemplo}{Ejemplo}[section]
+
+% Listas ordenadas con números romanos (i), (ii), etc.
+\newenvironment{nlist}
+{\begin{enumerate}
+\renewcommand\labelenumi{(\emph{\roman{enumi})}}}
+{\end{enumerate}}
+
+% División por casos con llave a la derecha.
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+
+%---------------------------------------------------------------------------
+%   PÁGINA DE TÍTULO
+%---------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\subject}{}
+
+% Autor del documento.
+\newcommand{\docauthor}{}
+
+% Título
+\title{
+  \normalfont \normalsize 
+  \textsc{} \\ [25pt]    % Texto por encima.
+  \horrule{0.5pt} \\[0.4cm] % Línea horizontal fina.
+  \huge Algoritmos Greedy \\ \Large Problema QAP\\ % Título.
+  \horrule{2pt} \\[0.5cm] % Línea horizontal gruesa.
+}
+
+% Autor.
+\author{\Large{Daniel Bolaños Martínez} 
+\\\\
+\Large{José María Borrás Serrano}
+\\\\
+\Large{Santiago de Diego de Diego}
+\\\\
+\Large{Fernando de la Hoz Moreno}}
+
+% Fecha.
+\date{\vspace{-1.5em} \normalsize }
+
+
+%---------------------------------------------------------------------------
+%   COMIENZO DEL DOCUMENTO
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle  % Título.
+\vfill
+\begin{center}
+\end{center}
+\newpage
+\newpage
+
+\section{Análisis del problema}
+
+El problema, P está basado en el Problema de Asignación Cuadrática,
+consiste en asignar a cada oficinista de un grupo de oficinistas,
+una habitación de un grupo de habitaciones de forma que se minimice
+el coste de asignar a cada habitación i el oficinista p(i). El Problema
+puede generalizarse a asignar N instalaciones a una cantidad N de
+locaciones en donde se considera un costo asociado a cada una de las
+asignaciones deseando que el coste en función del flujo sea mínimo.
+Matemáticamente, el problema puede definirse como:
+
+\[
+p^{*}=min_{p}{H(p)}=min_{p}{\displaystyle \sum_{i=0}^{N-1}{\displaystyle \sum_{i=0}^{N-1}}f_{p(i)p(j)}d_{ij}}
+\]
+donde f es la matriz de flujos de intersección desde el oficinista
+p(i) al p(j) y d es la matriz de distancias desde la habitación
+i a la j.
+
+Por ejemplo, la matriz de distancias d puede ser:
+
+\[
+\begin{array}{|ccccc|}
+\hline 0 & 7 & 14 & 20 & 3\\
+4 & 0 & 10 & 17 & 49\\
+51 & 1 & 0 & 43 & 71\\
+7 & 3 & 10 & 0 & 20\\
+90 & 101 & 47 & 3 & 0
+\\\hline \end{array}
+\]
+
+y la matriz de flujos:
+
+\[
+\begin{array}{|ccccc|}
+\hline 0 & 4 & 7 & 4 & 1\\
+0 & 0 & 10 & 3 & 21\\
+0 & 0 & 0 & 47 & 3\\
+41 & 21 & 7 & 0 & 9\\
+21 & 43 & 32 & 0 & 27
+\\\hline \end{array}
+\]
+
+Además definimos un vector de distancias entre habitaciones $d_p(i)=\displaystyle\sum_{j=0}^{N-1}d_{ij}$.
+Cada componente del vector contiene la suma de las distancias desde
+la localización i al resto.
+
+En nuestro caso dicho vector vendria dado como:
+
+\[
+d_{p}=(44,80,166,40,241)
+\]
+
+Si realizamos lo mismo con la matriz de flujos f, tendremos el vector
+:
+
+\[
+f_{p}={\displaystyle \sum_{b=0}^{N-1}f_{ab}}
+\]
+
+que en nuestro ejemplo particular es:
+
+\[
+f_{p}=(16,24,50,78,123)
+\]
+
+
+\section{Diseño de la solución relacionándolas con la metodología Greedy}
+
+En un algoritmo voraz los pasos que tenemos que seguir son: 
+\begin{itemize}
+\item Diseñar una lista de candidatos 
+\item Identificar una lista de candidatos ya utilizados 
+\item Diseñar una función solución 
+\item Diseñar un criterio de factibilidad
+\item Diseñar una función de selección del candidato más prometedor para
+formar parte de la solución 
+\item Encontrar una función objetivo de minimización/maximización. 
+\end{itemize}
+Nosotros hemos implementado los pasos de la siguiente forma:
+\begin{itemize}
+\item El \textbf{conjunto C de candidatos}, en este caso, las distancias
+entre las oficinas y el flujo de trabajo de los oficinistas. Se almacenarán
+cada uno en una matriz de NxN y serán las entradas del problema.
+\item \textbf{Función solución.} Comprueba, en cada paso, si el subconjunto
+actual de candidatos elegidos forma una solución (no importa si es
+óptima o no lo es). En nuestro caso una vez el conjunto de candidatos
+esté vacío habremos llegado a la solución. 
+\item \textbf{Función selección.} Informa cuál es el elemento más prometedor
+para completar la solución. Éste no puede haber sido escogido con
+anterioridad. Cada elemento es considerado una sola vez. Luego, puede
+ser rechazado o aceptado. Para nuestro algoritmo escogemos el oficinista
+con menor flujo de trabajo y le asignamos la habitación con mayor
+distancia.
+\item \textbf{Función de factibilidad.} Informa si a partir de un conjunto
+se puede llegar a una solución. En este caso la función de selección
+ya implementa la de factibilidad porque escogemos un elemento que
+es factible.
+\item \textbf{Función objetivo.} Es aquella que queremos maximizar o minimizar,
+el núcleo del problema. En nuestro problema queremos asignar a oficinistas
+con la máxima carga de trabajo a habitaciones con la mínima distancia. 
+\end{itemize}
+
+\section{Pseudocódigo que soluciona el problema}
+
+\section{Explicación del funcionamiento del algoritmo sobre el ejemplo}
+
+\section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
+
+El algorítmo de Asignación Cuadrática explicado es utilizado actualmente es muchas empresas para optimizar la ganancia de beneficios gastando el mínimo número de recursos.
+
+Algunos de los ejemplos que hemos visto más destacables y que muestran el caso de forma explícita son:
+
+Diseño de centros comerciales donde se quiere que el público recorra
+la menor cantidad de distancia para llegar a tiendas de mayor interés común. 
+
+Diseño de circuitos eléctricos, en donde es de relevante importancia
+dónde se ubican ciertas partes o chips con el fin de minimizar la
+distancia entre ellos, ya que las conexiones son de alto costo.
+
+Para la resolución de ambos problemas, podríamos aplicar exactamente los mismos pasos utilizados en nuestro algoritmo para obtener una solución adecuada.
+
+\section{Cálculo del orden de eficiencia teórica del algoritmo }
+
+\section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
+
+\textbf{Compilación:} Ejecutar make en su terminal.
+
+
+\textbf{Ejecución:} 
+
+
+1. Crear un archivo de texto con el siguiente formato.
+\begin{itemize}
+\item Numero de filas/columnas. 
+\item Matriz de distancias a Habitaciones.
+\item Matriz de flujo de trabajo de Oficinistas.
+\end{itemize}
+Formato similar al proporcionado en dat/matrices.dat
+
+
+2. Ejecutar el programa que se guardará por defecto en la carpeta
+bin del proyecto ./bin/prueba \textit{nombre\_archivo}
+\end{document}
+
+
+\grid
+\grid
+\grid

@@ -102,7 +102,7 @@ newpage
 \end_layout
 
 \begin_layout Section
-Planteamiento del problema
+Análisis del problema
 \end_layout
 
 \begin_layout Standard
@@ -368,11 +368,11 @@ f_{p}=(16,24,50,78,123)
 \end_layout
 
 \begin_layout Section
-Pasos en el desarrollo de un algoritmo voraz
+Diseño de la solución relacionándolas con la metodología Greedy
 \end_layout
 
 \begin_layout Standard
-En un algoritmo voraz tenemos que: 
+En un algoritmo voraz los pasos que tenemos que seguir son: 
 \end_layout
 
 \begin_layout Itemize
@@ -401,8 +401,8 @@ Encontrar una función objetivo de minimización/maximización.
  
 \end_layout
 
-\begin_layout Section
-Diseño de la solución relacionándolas con la metodología Greedy
+\begin_layout Standard
+Nosotros hemos implementado los pasos de la siguiente forma:
 \end_layout
 
 \begin_layout Itemize
@@ -514,7 +514,11 @@ textbf{Función objetivo.}
 \end_layout
 
 \begin_layout Section
-Funcionamiento del algoritmo para el ejemplo propuesto
+Pseudocódigo que soluciona el problema
+\end_layout
+
+\begin_layout Section
+Explicación del funcionamiento del algoritmo sobre el ejemplo
 \end_layout
 
 \begin_layout Section
@@ -529,10 +533,6 @@ Diseño de centros comerciales donde se quiere que el público recorra la
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 Diseño de circuitos eléctricos, en donde es de relevante importancia dónde
  se ubican ciertas partes o chips con el fin de minimizar la distancia entre
  ellos, ya que las conexiones son de alto costo.
@@ -544,6 +544,115 @@ Cálculo del orden de eficiencia teórica del algoritmo
 
 \begin_layout Section
 Instrucciones sobre como compilar y ejecutar el código de la práctica
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Compilación:}
+\end_layout
+
+\end_inset
+
+ Ejecutar make en su terminal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Ejecución:} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Crear un archivo de texto con el siguiente formato.
+ 
+\end_layout
+
+\begin_layout Itemize
+Numero de filas/columnas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Matriz de distancias a Habitaciones.
+\end_layout
+
+\begin_layout Itemize
+Matriz de flujo de trabajo de Oficinistas.
+\end_layout
+
+\begin_layout Standard
+Formato similar al proporcionado en dat/matrices.dat
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Ejecutar el programa que se guardará por defecto en la carpeta bin del
+ proyecto ./bin/prueba nombre_archivo
 \end_layout
 
 \end_body
