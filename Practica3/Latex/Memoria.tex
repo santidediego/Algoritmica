@@ -318,6 +318,7 @@ En un algoritmo voraz los pasos que tenemos que seguir son:
 \item Diseñar una función de selección del candidato más prometedor para
 formar parte de la solución 
 \item Encontrar una función objetivo de minimización/maximización. 
+\item Adaptar la estructura general del procedimiento Greedy al problema y resolverlo.
 \end{itemize}
 Nosotros hemos implementado los pasos de la siguiente forma:
 \begin{itemize}
@@ -342,9 +343,31 @@ con la máxima carga de trabajo a habitaciones con la mínima distancia.
 \end{itemize}
 
 \section{Pseudocódigo que soluciona el problema}
+A continuación se presenta el pseudocódigo de la función Greedy que soluciona nuestro problema y que nos ha servido de esqueleto para programar la función definitiva:
+\begin{verbatim}
+S <- 0
+Mientras (habitaciones != 0 && oficinistas != 0) hacer:
+   x1 = Selección de la habitación con mínima 
+        distancia potencial entre las habitaciones.
+   x2 = Selección del oficinista con máximo 
+        flujo potencial entre los oficinistas.
+   habitaciones = habitaciones \ {x1}
+   oficinistas = oficinista \ {x2}
+   S[x1] = x2
+Fin-Mientras
+Devolver S
+\end{verbatim}
+
+La función básicamente recorre las dos listas de candidatos (habitaciones y oficinistas en cada caso) hasta que estén vacíos (asignaremos un centinela (-1) a la lista de candidatos para 'eliminarlo' de la misma) y obtiene el índice de la habitación con mínima distancia y el índice del oficinista con máxima flujo de trabajo asignando las parejas en el vector solución.
+
 
 \section{Explicación del funcionamiento del algoritmo sobre el ejemplo}
-Para realizar el problema planteado se ha empleado un enfoque orientado a objetos empleando el lenguaje C++. Para ello, el problema en sí es una clase con sus correspondientes métodos.
+Para realizar el problema planteado se ha empleado un enfoque orientado a objetos empleando el lenguaje C++. 
+
+A la clase problema le pasamos dos matrices cuadradas, una con las distancias entre las habitaciones y otra con los flujos de trabajo de los oficinistas.
+
+La función Greedy genera los vectores asociados a las matrices que se pasan como parámetros en el Problema, llamando a la función candidatos, una vez hecha la conversión entre matriz de entrada y vector de candidatos, se llama a las funciones de selección las cuales devuelven el índice del máximo o mínimo valor en cada caso y se obtiene la solución del mismo asignándolo al atributo solucion. 
+
 \section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
 
 El algorítmo de Asignación Cuadrática explicado es utilizado actualmente es muchas empresas para optimizar la ganancia de beneficios gastando el mínimo número de recursos.
@@ -358,13 +381,13 @@ Diseño de circuitos eléctricos, en donde es de relevante importancia
 dónde se ubican ciertas partes o chips con el fin de minimizar la
 distancia entre ellos, ya que las conexiones son de alto costo.
 
-Para la resolución de ambos problemas, podríamos aplicar exactamente los mismos pasos utilizados en nuestro algoritmo para obtener una solución adecuada.
+Para la resolución de ambos problemas, podríamos aplicar exactamente los mismos pasos utilizados en nuestro algoritmo para obtener una solución adecuada. Nos centraremos más en uno de los casos citados en las diapositivas de la práctica.
 
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
-Si denotamos como $n$ el número de filas y de columnas de la matriz (recordar que son matrices cuadradas), entonces se tiene que el orden de eficiencia del algoritmo de búsqueda de la solución es $o(n^2)$.
-\paragraph{}
-Esto es debido a que el algoritmo se compone de dos funciones de selección distintas, cada una de ellas recorre el vector de principio a fin, el cual tiene longitud $n$.  Recordar que al ser las matrices de tamaño $n\times n$, es necesario que el vector sea de longitud $n$ para poder realizar la multiplicación correctamente. Por último, se engloban ambas funciones de selección dentro de un bucle \textit{for} que de tamaño $n$, por lo que la eficiencia total viene dada, como apuntábamos, por:
-$$\textrm{Eficiencia}= (2n)n=2n^2=o(n^2)$$
+Si denotamos como $n$ el número de filas y de columnas de la matriz (recordar que son matrices cuadradas), entonces se tiene que el orden de eficiencia del algoritmo de búsqueda de la solución es $O(n^2)$.
+
+Esto es debido a que el algoritmo se compone de dos funciones de selección distintas, cada una de ellas recorre el vector de principio a fin, el cual tiene longitud $n$.  Como las matrices son de tamaño $n\times n$, es necesario que el vector sea de longitud $n$ para poder realizar la multiplicación correctamente. Por último, se engloban ambas funciones de selección dentro de un bucle \textit{for} que de tamaño $n$, por lo que la eficiencia total viene dada, como apuntábamos, por:
+$$\textrm{Eficiencia}= (2n)n=2n^2=O(n^2)$$
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
 
 \textbf{Compilación:} Ejecutar make en su terminal.
@@ -391,13 +414,3 @@ bin del proyecto ./bin/prueba \textit{nombre\_archivo}
 \grid
 \grid
 \grid
-
-S <- 0
-Mientras (habitaciones != 0 && oficinistas != 0) hacer:
-x1 = Selección de la habitación con mínima distancia potencial entre las habitaciones.
-x2 = Selección del oficinista con máximo flujo potencial entre los oficinistas.
-habitaciones = habitaciones\{x1}
-oficinistas = oficinista\{x2}
-S[x1] = x2
-Fin-Mientras
-Devolver S
