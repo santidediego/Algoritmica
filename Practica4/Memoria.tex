@@ -1,0 +1,283 @@
+% Tipo de documento y opciones.
+\documentclass[11pt, a4paper]{article}
+
+
+%---------------------------------------------------------------------------
+%   PAQUETES
+%---------------------------------------------------------------------------
+
+% Idioma y codificación para Español.
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla, es-lcroman, es-noquoting]{babel}
+\selectlanguage{spanish} 
+%\usepackage[T1]{fontenc}
+
+% Fuente utilizada.
+\usepackage{courier}    % Fuente Courier.
+\usepackage{microtype}  % Mejora la letra final de cara al lector.
+
+% Diseño de página.
+\usepackage{fancyhdr}   % Utilizado para hacer títulos propios.
+\usepackage{lastpage}   % Referencia a la última página.
+\usepackage{extramarks} % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}    % Crea una nueva línea entre párrafos.
+\usepackage{geometry}            % Geometría de las páginas.
+
+% Símbolos y matemáticas.
+\usepackage{amssymb, amsmath, amsthm, amsfonts, amscd}
+\usepackage{upgreek}
+
+% Otros.
+\usepackage{enumitem}   % Listas mejoradas.
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}   % Gráficos.
+
+
+%---------------------------------------------------------------------------
+%   OPCIONES PERSONALIZADAS
+%---------------------------------------------------------------------------
+
+% Redefinir letra griega épsilon.
+\let\epsilon\upvarepsilon
+
+% Formato de texto.
+\linespread{1.1}            % Espaciado entre líneas.
+\setlength\parindent{0pt}   % No indentar el texto por defecto.
+\setlist{leftmargin=.5in}   % Indentación para las listas.
+
+% Estilo de página.
+\pagestyle{fancy}
+\fancyhf{}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm}   % Márgenes y cabecera.
+
+
+% Redefinir entorno de demostración (reducir espacio superior)
+%\makeatletter
+%\renewenvironment{proof}[1][\proofname] {\vspace{-15pt}\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\it#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
+%\makeatother
+
+% Aumentar el tamaño del interlineado
+\linespread{1.3}
+
+
+%---------------------------------------------------------------------------
+%   COMANDOS PERSONALIZADOS
+%---------------------------------------------------------------------------
+
+% Valor absoluto: \abs{}
+\providecommand{\abs}[1]{\lvert#1\rvert}    
+
+% Fracción grande: \ddfrac{}{}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
+% Texto en negrita en modo matemática: \bm{}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Línea horizontal.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+% Letras de conjuntos
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% Sucesiones
+\newcommand{\xn}{\{x_n\}}
+\newcommand{\fn}{\{f_n\}}
+
+
+%---------------------------------------------------------------------------
+%   CABECERA Y PIE DE PÁGINA
+%---------------------------------------------------------------------------
+
+% Cabecera del documento.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize 
+	\end{minipage}
+}
+
+% Texto de la cabecera.
+\lhead{\subject}  % Izquierda.
+\chead{}            % Centro.
+\rhead{\docauthor}    % Derecha.
+
+% Pie de página del documento.
+\renewcommand\footrule{                                 
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize   
+	\end{minipage}\par
+}
+
+% Texto del pie de página.
+\lfoot{}                                                 % Izquierda
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Derecha.
+
+
+%---------------------------------------------------------------------------
+%   ENTORNOS PARA MATEMÁTICAS
+%---------------------------------------------------------------------------
+
+% Nuevo estilo para definiciones.
+\newtheoremstyle{definition-style} % Nombre del estilo.
+{10pt}               % Espacio por encima.
+{10pt}               % Espacio por debajo.
+{}                   % Fuente del cuerpo.
+{}                   % Identación.
+{\bf}                % Fuente para la cabecera.
+{.}                  % Puntuación tras la cabecera.
+{.5em}               % Espacio tras la cabecera.
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}     % Especificación de la cabecera (actual: nombre en negrita).
+
+% Nuevo estilo para notas.
+\newtheoremstyle{remark-style} 
+{10pt}                
+{10pt}                
+{}                   
+{}                   
+{\itshape}          
+{.}                  
+{.5em}               
+{}                  
+
+% Nuevo estilo para teoremas y proposiciones.
+\newtheoremstyle{theorem-style}
+{10pt}                
+{10pt}                
+{\itshape}           
+{}                  
+{\bf}             
+{.}                
+{.5em}               
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}                   
+
+% Nuevo estilo para ejemplos.
+\newtheoremstyle{example-style}
+{10pt}                
+{10pt}                
+{}                  
+{}                   
+{\scshape}              
+{:}                 
+{.5em}               
+{}                   
+
+% Teoremas, proposiciones y corolarios.
+\theoremstyle{theorem-style}
+\newtheorem{nth}{Teorema}[section]
+\newtheorem*{nprop}{Proposición}
+\newtheorem{ncor}{Corolario}[section]
+
+% Definiciones, ejercicios.
+\theoremstyle{definition-style}
+\newtheorem*{ndef}{Definición}
+\newtheorem{ejer}{Ejercicio}
+
+% Notas, soluciones.
+\theoremstyle{remark-style}
+\newtheorem*{nota}{Nota}
+\newtheorem*{sol}{Solución}
+
+% Ejemplos.
+\theoremstyle{example-style}
+\newtheorem{ejemplo}{Ejemplo}[section]
+
+% Listas ordenadas con números romanos (i), (ii), etc.
+\newenvironment{nlist}
+{\begin{enumerate}
+\renewcommand\labelenumi{(\emph{\roman{enumi})}}}
+{\end{enumerate}}
+
+% División por casos con llave a la derecha.
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+
+%---------------------------------------------------------------------------
+%   PÁGINA DE TÍTULO
+%---------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\subject}{}
+
+% Autor del documento.
+\newcommand{\docauthor}{}
+
+% Título
+\title{
+  \normalfont \normalsize 
+  \textsc{} \\ [25pt]    % Texto por encima.
+  \horrule{0.5pt} \\[0.4cm] % Línea horizontal fina.
+  \huge Algoritmos en exploración de grafos\\ \Large{Backtracking}\\ % Título.
+  \horrule{2pt} \\[0.5cm] % Línea horizontal gruesa.
+}
+
+% Autor.
+\author{\Large{Daniel Bolaños Martínez} 
+\\\\
+\Large{José María Borrás Serrano}
+\\\\
+\Large{Santiago de Diego de Diego}
+\\\\
+\Large{Fernando de la Hoz Moreno}}
+
+% Fecha.
+\date{\vspace{-1.5em} \normalsize }
+
+
+%---------------------------------------------------------------------------
+%   COMIENZO DEL DOCUMENTO
+%---------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle  % Título.
+\vfill
+\begin{center}
+\end{center}
+\newpage
+\newpage
+
+\section{Análisis del problema}
+El problema que tenemos ante nosotros es el problema de resolver un Sudoku. Un Sudoku consiste en un pasatiempo matemático que trata de rellenar con números del 1 al 9 una tabla de $9\times 9$ elementos, dividida en subcuadrículas de $3\times 3$, con casillas ya rellenadas previamente. Las normas que hay que cumplir son:
+\begin{itemize}
+\item No puede haber dos casillas en la misma fila con el mismo número
+\item No puede haber dos casillas en la misma columna con el mismo número
+\item No puede haber dos casillas, en la misma subcuadrícula de $3 \times 3$ con el mismo número.
+\end{itemize}
+Para resolver el problema tenemos que ir escribiendo números en las cuadrículas que se encuentran vacías sin romper las reglas anteriormente mencionadas. Se encontrará una solución cuando todas las casillas estén rellenas.
+
+\section{Diseño de la solución empleando la metodología Backtracking}
+Para la resolución de dicho problema mediante la técnica de Backtracking. De forma general, los pasos para diseñar un algoritmo de Backtracking son:
+\begin{itemize}
+\item Buscar una representación del tipo $T=(x_1, x_2, \ldots, x_n)$ para las soluciones del problema
+\item Diseñar las restricciones implícitas, es decir, los valores que puede tener cada $x_i$ para contruir la solución
+\item Identificar las restricciones explícitas, es decir, las restricciones externas al proceso de encontrar la solución
+\item Diseñar la estructura de árbol o grafo implícito que define los estados y transiciones entre estados de búsqueda de soluciones.
+\item Diseñar una función objetivo, la cual actuará como criterio de parada para encontrar las soluciones requeridas.
+\item Diseñar una función de poda $B_k(x_1, x_2, \ldots, x_n)$ para eliminar la exploración de ramas que deriven en soluciones inadecuadas.
+\item Adaptar la estructura general del procedimiento Backtracking al problema y resolverlo.
+\end{itemize}
+
+\section{Pseudocódigo que soluciona el problema}
+
+
+\section{Explicación del funcionamiento del algoritmo sobre el ejemplo}
+
+
+\section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
+
+
+
+\section{Cálculo del orden de eficiencia teórica del algoritmo }
+
+\section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
+
+\end{document}
+
+
+\grid
+\grid
+\grid
+\grid
