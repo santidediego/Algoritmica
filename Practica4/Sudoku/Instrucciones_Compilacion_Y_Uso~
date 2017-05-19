@@ -1,0 +1,12 @@
+Compilación: Ejecutar make en su terminal.
+
+Ejecución: 
+
+1. Crear un archivo de texto con el siguiente formato.
+	Matriz con el sudoku a resolver(las casillas vacías se deben indicar como un 0)
+
+1.1 Formato similar al proporcionado en dat/matrices.dat
+
+2. Ejecutar el programa que se guardará por defecto en la carpeta bin del proyecto	      
+
+	./bin/prueba nombre_archivo
