@@ -12,16 +12,16 @@
 
 
 	/*
-	Se pasa una matriz de distacias a habitaciones u de flujo de trabajo de oficinistas y genera el vector 
+	Se pasa una matriz de distacias a habitaciones u de flujo de trabajo de oficinistas y genera el vector
 	de distancias potencial dp entre habitaciones y el de flujos potenciales fp respectivamente.
 	Eficiencia: O(n²)
 	*/
 	vector<double> Problema::candidatos(const vector<vector<double> >& m){
 		vector<double> candidatos;
 		int suma=0;
-		
-		for(int i=0; i<n; ++i){			
-			for(int j=0; j<n; ++j){		
+
+		for(int i=0; i<n; ++i){
+			for(int j=0; j<n; ++j){
 				suma+=m[i][j];
 			}
 			candidatos.push_back(suma);
@@ -56,7 +56,7 @@
 	}
 
 	/*
-	Se le pasa el vector con el flujo de trabajo entre los oficinistas y 
+	Se le pasa el vector con el flujo de trabajo entre los oficinistas y
 	devuelve el índice del oficinista con menor flujo.
 	Eficiencia: O(n)
 	*/
@@ -65,14 +65,14 @@
 		int min_i=0;
 
 		for(int i=1; i<v.size(); ++i)
-			if((v[i] < v[min_i]) || (v[min_i] == -1))
+			if((((v[i] < v[min_i])) && v[i]>0)|| (v[min_i] == -1))
 				min_i=i;
 
 		return min_i;
 	}
 
 	/*
-	Se le pasa el vector con la distancia entre las habitaciones y 
+	Se le pasa el vector con la distancia entre las habitaciones y
 	devuelve el índice de la habitación con mayor distancia.
 	Eficiencia: O(n)
 	*/
