@@ -273,7 +273,7 @@ En nuestro ejemplo, no puede haber valores repetidos en una columna, en una fila
 
 \item Diseñar la estructura de árbol o grafo implícito que define los estados y transiciones entre estados de búsqueda de soluciones.
 
-
+\textit{METER EL ARBOL}
 
 \item Diseñar una función objetivo, la cual actuará como criterio de parada para encontrar las soluciones requeridas.
 
@@ -292,24 +292,123 @@ repetidos en una columna, fila o cuadrante, se poda la rama.
 \section{Pseudocódigo que soluciona el problema}
 
 \begin{verbatim}
+Funcion Backtracking(casilla c) devuelve booleano
+    Si no quedan casillas libres entonces:
+        Devolver Verdedero
 
-bactracking()
+    Para k de 1 al 9 hacer:
+        Si esFactible(k):
+            Poner k en casilla c
+            Si no quedan casillas vacias:
+                Devolver Verdadero
+            Sino:
+                Backtracking(SiguienteCasilla(c))
 
-S <- 0
-Mientras (habitaciones != 0 && oficinistas != 0) hacer:
-   x1 = Selección de la habitación con mínima 
-        distancia potencial entre las habitaciones.
-   x2 = Selección del oficinista con máximo 
-        flujo potencial entre los oficinistas.
-   habitaciones = habitaciones \ {x1}
-   oficinistas = oficinista \ {x2}
-   S[x1] = x2
-Fin-Mientras
-Devolver S
+    Si ningunValorFactible :
+        AnulaValor(c)
 \end{verbatim}
 
 
 \section{Explicación del funcionamiento del algoritmo sobre el ejemplo}
+
+Vamos a tomar como ejemplo para explicar el funcionamiento del algoritmo un sudoku al cual sólo le faltan tres casillas:
+
+\[
+\begin{array}{ccccccccc}
+0 & 0 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 0 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
+
+El algoritmo empieza seleccionando la primera casilla que tiene un 0, en este caso la casilla(0,0).
+Una vez en la casilla comprueba si se puede poner un 1, no se puede ya que no cumple las restricciones. Comprueba si se puede poner un 2, tampoco es posible. Entonces comprueba si se puede poner un 3, esta vez sí cumple las restricciones por lo que en la casilla (0,0) pone un 3.
+
+\[
+\begin{array}{ccccccccc}
+3 & 0 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 0 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
+
+Pasamos a la siguiente casilla vacía, la casilla (0,1). Vuelve a comprobar los números que se pueden colocar desde el 1 hasta el 9, ninguno de esos números verifica las restricciones. De esta forma en la casilla (0,1) no pone ningún número y la casilla se queda con un 0.
+
+Como no hemos podido poner ningún número en la casilla volvemos a la casilla anterior, la (0,0), y se pone un 0.
+
+\[
+\begin{array}{ccccccccc}
+0 & 0 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 0 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
+
+Seguimos probando con los números del 4 al 9, el 5 es un número válido así que lo pone en la casilla y pasa a la siguiente casilla vacía, la (0,1).
+
+\[
+\begin{array}{ccccccccc}
+5 & 0 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 0 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
+ 
+En la casilla (0,1) volvemos a probar con los números del 1 al 9, el primer número válido es el 3 así que lo pone y pasa a la siguiente casilla vacía.
+
+\[
+\begin{array}{ccccccccc}
+5 & 3 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 0 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
+
+Estamos en la casilla (0,3), comprobamos los números del 1 al 9 que son válidos, en este caso el número 1 cumple con todas las restricciones así que lo pone. Como no quedan casillas vacías el algoritmo termina.
+
+\[
+\begin{array}{ccccccccc}
+5 & 3 & 4 & 6 & 7 & 8 & 9 & 1 & 2\\
+6 & 7 & 2 & 1 & 9 & 5 & 3 & 4 & 8\\
+1 & 9 & 8 & 3 & 4 & 2 & 5 & 6 & 7\\
+8 & 5 & 9 & 7 & 6 & 1 & 4 & 2 & 3\\
+4 & 2 & 6 & 8 & 5 & 3 & 7 & 9 & 1\\
+7 & 1 & 3 & 9 & 2 & 4 & 8 & 5 & 6\\
+9 & 6 & 1 & 5 & 3 & 7 & 2 & 8 & 4\\
+2 & 8 & 7 & 4 & 1 & 9 & 6 & 3 & 5\\
+3 & 4 & 5 & 2 & 8 & 6 & 1 & 7 & 9\\
+\end{array}
+\]
 
 
 \section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
@@ -319,7 +418,10 @@ El algoritmo ha sido ideado inicialmente para resolver un sudoku, por tanto esta
 El algoritmo no obstante es muy similar al algoritmo del coloreo de un grafo, el cual tiene numerosas aplicaciones prácticas.
 
 El problema del sudoku puede resolverse también por el método del simplex, aunque nosotros nos hemos centrado solamente en emplear un algoritmo Backtracking.
+
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
+
+\textit{FERNANDO}
 
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
 
@@ -330,10 +432,24 @@ El problema del sudoku puede resolverse también por el método del simplex, aun
 
 1. Crear un archivo de texto con el siguiente formato.
 \begin{itemize}
-\item Matriz con el sudoku a resolver(las casillas vacías se deben indicar como un 0).
+\item Matriz con el sudoku a resolver (las casillas vacías se deben indicar como un 0).
 \end{itemize}
 
 Formato similar al proporcionado en dat/sudoku.dat
+
+\[
+\begin{array}{ccccccccc}
+5 & 3 & 0 & 0 & 7 & 0 & 0 & 0 & 0\\
+6 & 0 & 0 & 1 & 9 & 5 & 0 & 0 & 0\\
+0 & 9 & 8 & 0 & 0 & 0 & 0 & 6 & 0\\
+8 & 0 & 0 & 0 & 6 & 0 & 0 & 0 & 3\\
+4 & 0 & 0 & 8 & 0 & 3 & 0 & 0 & 1\\
+7 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 6\\
+0 & 6 & 0 & 0 & 0 & 0 & 2 & 8 & 0\\
+0 & 0 & 0 & 4 & 1 & 9 & 0 & 0 & 5\\
+0 & 0 & 0 & 0 & 8 & 0 & 0 & 7 & 9\\
+\end{array}
+\]
 
 Ejecutar el programa que se guardará por defecto en la carpeta bin del proyecto. 
 
