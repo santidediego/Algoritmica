@@ -1,0 +1,16 @@
+
+
+Funcion Backtracking(casilla c) devuelve booleano
+    Si no quedan casillas libres entonces:
+        Devolver Verdedero
+
+    Para k de 1 al 9 hacer:
+        Si esFactible(k):
+            Poner k en casilla c
+            Si no quedan casillas vacias:
+                Devolver Verdadero
+            Sino:
+                Backtracking(SiguienteCasilla(c))
+
+    Si ningunValorFactible :
+        AnulaValor(c)
