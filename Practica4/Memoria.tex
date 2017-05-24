@@ -248,19 +248,65 @@ El problema que tenemos ante nosotros es el problema de resolver un Sudoku. Un S
 \end{itemize}
 Para resolver el problema tenemos que ir escribiendo números en las cuadrículas que se encuentran vacías sin romper las reglas anteriormente mencionadas. Se encontrará una solución cuando todas las casillas estén rellenas.
 
+\section{Elección entre los métodos de Backtracking y Branch$\&$Bound}
+
+La técnica que hemos escogido no puede ser Branch$\&$Bound debido a que no se puede realizar un cálculo de cotas, no podemos determinar que un nodo sea mejor que otro hasta que no lo hayamos recorrido.
+
+Por eso hemos preferido escoger Bactracking, ya que la acción de visitar los nodos se hace de forma más eficaz.
+
 \section{Diseño de la solución empleando la metodología Backtracking}
+
 Para la resolución de dicho problema mediante la técnica de Backtracking. De forma general, los pasos para diseñar un algoritmo de Backtracking son:
 \begin{itemize}
-\item Buscar una representación del tipo $T=(x_1, x_2, \ldots, x_n)$ para las soluciones del problema
-\item Diseñar las restricciones implícitas, es decir, los valores que puede tener cada $x_i$ para contruir la solución
-\item Identificar las restricciones explícitas, es decir, las restricciones externas al proceso de encontrar la solución
+\item Buscar una representación del tipo $T=(x_1, x_2, \ldots, x_n)$ para las soluciones del problema.
+
+En nuestro caso: $T(x_1, x_2, \dots, x_9)$ donde $x_i$ es la un vector de nueve componentes que representa la fila $i$ del sudoku.
+
+\item Diseñar las restricciones implícitas, es decir, los valores que puede tener cada $x_i$ para contruir la solución.
+
+En nuestro caso: $x_i$ $\in$ ${1, \dots, 9}$
+
+\item Identificar las restricciones explícitas, es decir, las restricciones externas al proceso de encontrar la solución.
+
+En nuestro ejemplo, no puede haber valores repetidos en una columna, en una fila o en un cuadrante.
+
+
 \item Diseñar la estructura de árbol o grafo implícito que define los estados y transiciones entre estados de búsqueda de soluciones.
+
+
+
 \item Diseñar una función objetivo, la cual actuará como criterio de parada para encontrar las soluciones requeridas.
+
+La función objetivo hace que el sudoku este completo, "sin huecos".
+
+
 \item Diseñar una función de poda $B_k(x_1, x_2, \ldots, x_n)$ para eliminar la exploración de ramas que deriven en soluciones inadecuadas.
+
+Si una de las ramas no cumple las restricciones explícitas, es decir, hay valores
+repetidos en una columna, fila o cuadrante, se poda la rama.
+
 \item Adaptar la estructura general del procedimiento Backtracking al problema y resolverlo.
+
 \end{itemize}
 
 \section{Pseudocódigo que soluciona el problema}
+
+\begin{verbatim}
+
+bactracking()
+
+S <- 0
+Mientras (habitaciones != 0 && oficinistas != 0) hacer:
+   x1 = Selección de la habitación con mínima 
+        distancia potencial entre las habitaciones.
+   x2 = Selección del oficinista con máximo 
+        flujo potencial entre los oficinistas.
+   habitaciones = habitaciones \ {x1}
+   oficinistas = oficinista \ {x2}
+   S[x1] = x2
+Fin-Mientras
+Devolver S
+\end{verbatim}
 
 
 \section{Explicación del funcionamiento del algoritmo sobre el ejemplo}
@@ -268,13 +314,32 @@ Para la resolución de dicho problema mediante la técnica de Backtracking. De f
 
 \section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
 
-El algoritmo ha sido ideado inicialmente para resolver un sudoku, por tanto esta es su principal utilidad. El algoritmo no obstante es muy similar al algoritmo del coloreo de un grafo, el cual tiene numerosas aplicaciones prácticas. El problema del sudoku puede resolverse también por el método del simplex, aunque nosotros nos hemos centrado solamente en emplear un algoritmo backtracking.
+El algoritmo ha sido ideado inicialmente para resolver un sudoku, por tanto esta es su principal utilidad. 
+
+El algoritmo no obstante es muy similar al algoritmo del coloreo de un grafo, el cual tiene numerosas aplicaciones prácticas.
+
+El problema del sudoku puede resolverse también por el método del simplex, aunque nosotros nos hemos centrado solamente en emplear un algoritmo Backtracking.
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
 
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
 
-\end{document}
 
+\textbf{Compilación:} Ejecutar make en su terminal.
+
+\textbf{Ejecución:} 
+
+1. Crear un archivo de texto con el siguiente formato.
+\begin{itemize}
+\item Matriz con el sudoku a resolver(las casillas vacías se deben indicar como un 0).
+\end{itemize}
+
+Formato similar al proporcionado en dat/sudoku.dat
+
+Ejecutar el programa que se guardará por defecto en la carpeta bin del proyecto. 
+
+./bin/prueba \textit{nombre\_archivo}
+	
+\end{document}
 
 \grid
 \grid
