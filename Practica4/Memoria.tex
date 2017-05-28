@@ -421,8 +421,11 @@ El algoritmo no obstante es muy similar al algoritmo del coloreo de un grafo, el
 El problema del sudoku puede resolverse también por el método del simplex, aunque nosotros nos hemos centrado solamente en emplear un algoritmo Backtracking.
 
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
+La eficiencia del algoritmo en terminos recursivos es: $$ T(n) = 9*(9*3 + T(n-1))$$
 
-\textit{FERNANDO}
+Siendo n el número de casillas vacías que hay en el sudoku. Esto es porque en cada etapa recursiva, en el peor caso, se tendrá que calcular la factibilidad de los nueve valores posibles que puede tomar la casilla sobre la que se esta decidiendo. Para comprobar la factibilidad de cada valor se tiene que comparar con 9*3 casillas, viendo que no se repite dicho valor. Una vez hayado un valor factible para esa casilla se llama a resolver el sudoku con $n-1$ casillas vacías. Resolviendo la ecuación en recurrencias nos queda que: $$ T(n) = (1 - \frac{243}{1-9})*9^n + \frac{243}{1-9}$$ Que simplificando se nos queda: $$T(n) = 31.375*9^n - 30.375 $$
+
+
 
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
 
