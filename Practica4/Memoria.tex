@@ -22,6 +22,7 @@
 \usepackage{extramarks} % Marcas extras. Utilizado en pie de página y cabecera.
 \usepackage[parfill]{parskip}    % Crea una nueva línea entre párrafos.
 \usepackage{geometry}            % Geometría de las páginas.
+\usepackage{cite}
 
 % Símbolos y matemáticas.
 \usepackage{amssymb, amsmath, amsthm, amsfonts, amscd}
@@ -414,12 +415,9 @@ Estamos en la casilla (0,3), comprobamos los números del 1 al 9 que son válido
 
 \section{Enunciado de un problema o caso real donde se pueda aplicar el algoritmo}
 
-El algoritmo ha sido ideado inicialmente para resolver un sudoku, por tanto esta es su principal utilidad. 
-
-El algoritmo no obstante es muy similar al algoritmo del coloreo de un grafo, el cual tiene numerosas aplicaciones prácticas.
-
+El algoritmo ha sido ideado inicialmente para resolver un sudoku, por tanto esta es su principal utilidad.  No obstante, es muy similar al algoritmo del coloreo de un grafo, el cual tiene numerosas aplicaciones prácticas. Ademas, algunos trabajos de investigación como \cite{sudoku}, presentan similitudes entre este problema y el \textit{Problema de Plegamiento de Proteínas} o el \textit{Problema del estado fundamental de los sistemas de hilado vítreo}.
+\paragraph{}
 El problema del sudoku puede resolverse también por el método del simplex, aunque nosotros nos hemos centrado solamente en emplear un algoritmo Backtracking.
-
 \section{Cálculo del orden de eficiencia teórica del algoritmo }
 La eficiencia del algoritmo en terminos recursivos es: $$ T(n) = 9*(9*3 + T(n-1))$$
 
@@ -458,7 +456,11 @@ Formato similar al proporcionado en dat/sudoku.dat
 Ejecutar el programa que se guardará por defecto en la carpeta bin del proyecto. 
 
 ./bin/prueba \textit{nombre\_archivo}
-	
+\begin{thebibliography}{X}
+\bibitem{sudoku} \textsc{Mária Ercsey-Ravasz, Zoltán Toroczka}.
+\textit{The Chaos Within Sudoku}.
+Scientific Reports, Octubre 2012. Disponible en: \url{http://www.readcube.com/articles/10.1038/srep00725}
+\end{thebibliography}	
 \end{document}
 
 \grid
