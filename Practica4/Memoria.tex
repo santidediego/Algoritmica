@@ -250,11 +250,15 @@ El problema que tenemos ante nosotros es el problema de resolver un Sudoku. Un S
 \end{itemize}
 Para resolver el problema tenemos que ir escribiendo números en las cuadrículas que se encuentran vacías sin romper las reglas anteriormente mencionadas. Se encontrará una solución cuando todas las casillas estén rellenas.
 
+Para ello, hemos utilizado una matriz de $9 \times 9$ de enteros para representar el Sudoku, las casillas vacías, las indicamos con un 0, al no ser un valor válido del Sudoku. Nuestro objetivo, será resolver el Sudoku, para ello rellenaremos las casillas vacías utilizando un algoritmo $Backtraking$ o $Branch \& Bound$.
+
 \section{Elección entre los métodos de Backtracking y Branch$\&$Bound}
 
 La técnica que hemos escogido no puede ser Branch$\&$Bound debido a que no se puede realizar un cálculo de cotas, no podemos determinar que un nodo sea mejor que otro hasta que no lo hayamos recorrido.
 
 Por eso hemos preferido escoger Bactracking, ya que la acción de visitar los nodos se hace de forma más eficaz.
+
+No es posible obtener una cota superior, ya que para ello, tendríamos que tener una solución del Sudoku. Como no se trata de un problema de optimización, si no simplemente de obtener una solución válida, si encontramos una solución ya hemos resuelto nuestro problema.
 
 \section{Diseño de la solución empleando la metodología Backtracking}
 
@@ -262,7 +266,7 @@ Para la resolución de dicho problema mediante la técnica de Backtracking. De f
 \begin{itemize}
 \item Buscar una representación del tipo $T=(x_1, x_2, \ldots, x_n)$ para las soluciones del problema.
 
-En nuestro caso: $T(x_1, x_2, \dots, x_9)$ donde $x_i$ es la un vector de nueve componentes que representa la fila $i$ del sudoku.
+En nuestro caso: $T(x_1, x_2, \dots, x_n)$ donde $x_i$ es cada casilla del Sudoku que no está resuelta.
 
 \item Diseñar las restricciones implícitas, es decir, los valores que puede tener cada $x_i$ para contruir la solución.
 
@@ -275,11 +279,19 @@ En nuestro ejemplo, no puede haber valores repetidos en una columna, en una fila
 
 \item Diseñar la estructura de árbol o grafo implícito que define los estados y transiciones entre estados de búsqueda de soluciones.
 
+\textbf{Estado inicial: }El Sudoku con casillas vacías y que todas las casillas con números sean válidas y admitan una solución.
+\
+
+\textbf{Estado final: }El Sudoku con todas las casillas rellenas y cumpliendo las restricciones.
+
 \includegraphics[scale=0.3]{Grafo_BackTracking}
+
+
+\textbf{Aristas: }Cada arista relaciona un Sudoku padre con uno hijo, cumpliendo que cada Sudoku hijo tiene en la casilla siguiente a la última resuelta por el padre, un número que va desde 1 hasta 9.
 
 \item Diseñar una función objetivo, la cual actuará como criterio de parada para encontrar las soluciones requeridas.
 
-La función objetivo hace que el sudoku este completo, "sin huecos".
+La función objetivo es que el sudoku esté completo, todas las casillas tengan un número y que además cumplan las restricciones.
 
 
 \item Diseñar una función de poda $B_k(x_1, x_2, \ldots, x_n)$ para eliminar la exploración de ramas que deriven en soluciones inadecuadas.
@@ -294,20 +306,39 @@ repetidos en una columna, fila o cuadrante, se poda la rama.
 \section{Pseudocódigo que soluciona el problema}
 
 \begin{verbatim}
-Funcion Backtracking(casilla c) devuelve booleano
+Funcion solucion(Sudoku S) devuelve Sudoku completo
+    // S es una matriz
+    
     Si no quedan casillas libres entonces:
-        Devolver Verdedero
+       Devolver S
+   
+    Funcion Backtracking(SiguienteCasillaVacia(S))
+    Devolver S
+    
+    
+Funcion Backtracking(c) devuelve un booleano
 
-    Para k de 1 al 9 hacer:
-        Si esFactible(k):
-            Poner k en casilla c
-            Si no quedan casillas vacias:
-                Devolver Verdadero
-            Sino:
-                Backtracking(SiguienteCasilla(c))
-
-    Si ningunValorFactible :
-        AnulaValor(c)
+    //c es una casilla del sudoku, se representa
+    mediante los índices de la matriz)
+    
+    Si c es una casilla fuera de los límites de S
+       Devolver verdadero
+    
+    parar igual a false(:parar es una variable)
+    Para k de 1 al 9 y mientras !parar:
+    
+    //k es una variable de tipo int
+    
+       Si esFactible(k): 
+       
+       //esFactible determina si al poner k en c se 
+       //siguen cumpliendo las restricciones
+       
+          Poner k en casilla c
+             parar = Backtracking(SiguienteCasillaVacia(c))
+       
+    Si ningunValorFactible:
+       AnulaValor(c)    
 \end{verbatim}
 
 
@@ -422,7 +453,10 @@ El problema del sudoku puede resolverse también por el método del simplex, aun
 La eficiencia del algoritmo en terminos recursivos es: $$ T(n) = 9*(9*3 + T(n-1))$$
 
 Siendo n el número de casillas vacías que hay en el sudoku. Esto es porque en cada etapa recursiva, en el peor caso, se tendrá que calcular la factibilidad de los nueve valores posibles que puede tomar la casilla sobre la que se esta decidiendo. Para comprobar la factibilidad de cada valor se tiene que comparar con 9*3 casillas, viendo que no se repite dicho valor. Una vez hayado un valor factible para esa casilla se llama a resolver el sudoku con $n-1$ casillas vacías. Resolviendo la ecuación en recurrencias nos queda que: $$ T(n) = (1 - \frac{243}{1-9})*9^n + \frac{243}{1-9}$$ Que simplificando se nos queda: $$T(n) = 31.375*9^n - 30.375 $$
-
+Por tanto:
+\[
+O(n)=9^{n}
+\]
 
 
 \section{Instrucciones sobre como compilar y ejecutar el código de la práctica}
